@@ -1,4 +1,4 @@
-- Oi tudo bom?
+- Resumo
 
 - O que é um servidor Web HTTP?
     - Imagine um programa de computador, que aguarda conexões chegarem a seu computador.
