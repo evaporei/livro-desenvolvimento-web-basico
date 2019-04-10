@@ -1,0 +1,29 @@
+- Oi tudo bom?
+
+- O que é um servidor Web HTTP?
+    - Imagine um programa de computador, que aguarda conexões chegarem a seu computador.
+    - Basicamente o computador tem várias portas as quais ele pode liberar para o mundo a fora se comunicar com programas desse computador
+    - Quando se cria um servidor Web HTTP, se escolhe uma porta para que o mundo possa se comunicar a ela.
+
+- Como geralmente é a estrutura que gira entorno de servidores HTTP?
+    - Bom o servidor, fica escutando em uma porta por conexões
+    - Todo computador tem um IP, um identificador único na internet
+    - Geralmente se configura um DNS, que nada mais é do que um texto (URL) que direciona para um IP ou um conjunto de IPs
+    - Alguém que sabe a URL do seu serviço/site/servidor e cria uma conexão HTTP.
+
+- Qual a dinâmica da conexão HTTP?
+    - Existem dois players, um é o cliente, e outro o servidor. O servidor aguarda por requisições de clientes. E os clientes iniciam a conexão criando requisições
+    - O protocólo HTTP é síncrono, o cliente envia dados ao servidor, esse lê os dados, e retorna algo de volta.
+    - Portanto ele se baseia em requisição do lado do cliente e resposta do lado do servidor.
+
+- Quais são os dados trafegados nessa comunicação?
+    - URL
+        - DNS
+        - rota/caminho
+        - query string
+    - Status code (apenas da resposta), indica se deu certo, errado, etc
+    - Corpo (body) da requisição e da resposta (vários formatos distintos, costuma ter dados principais)
+    - Headers da requisição e da resposta (costuma ter token de autenticação e dados mais auxíliares, como qual é a biblioteca usada no servidor, qual a biblioteca usada para fazer a requisição, qual browser, etc)
+    - Método (indica o que será feito)
+
+- Como consumir uma API via código?

@@ -1,0 +1,5 @@
+[book]
+authors = ["Otávio Pace"]
+multilingual = false
+src = "src"
+title = "livro-http-node"
