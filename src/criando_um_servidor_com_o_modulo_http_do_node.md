@@ -22,7 +22,7 @@ Bom, agora que já importamos o módulo, iremos criar um servidor, usando a fun�
 ```javascript
 const http = require('http')
 
-const requestHandler = (request, response) => {
+function requestHandler (request, response) {
   response.write('Hello World Node.js HTTP server!')
   response.end()
 }
@@ -40,7 +40,7 @@ Como vimos antes, para o servidor ficar acessível ao mundo externo, precisamos 
 const http = require('http')
 const PORT = 8000
 
-const requestHandler = (request, response) => {
+function requestHandler (request, response) {
   response.write('Hello World Node.js HTTP server!')
   response.end()
 }
@@ -70,7 +70,7 @@ Caso nosso servidor esteja de pé irá aparecer a seguinte frase no terminal: `S
 
 Se der errado por algum motivo, aparecerá: `Algo de ruim aconteceu, erro: `, com o erro em sequência.
 
-Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta `8000`. Sendo esse o caso, ou mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.
+Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta `8000`. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.
 
 ### Ta, e agora?
 
@@ -111,7 +111,7 @@ Segue o código abaixo com alguns `logs` simples.
 const http = require('http')
 const PORT = 8000
 
-const requestHandler = (request, response) => {
+function requestHandler (request, response) {
   console.log('URL:', request.url)
   console.log('Método:', request.method)
 

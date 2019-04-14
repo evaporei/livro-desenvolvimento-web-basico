@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html" class="active"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html" class="active"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">7.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">8.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -153,7 +153,7 @@ touch modulo_http.js
 <p>Bom, agora que já importamos o módulo, iremos criar um servidor, usando a função <code>createServer</code>. Ela recebe uma função, que será chamada para cada vez que o servidor receber uma requisição.</p>
 <pre><code class="language-javascript">const http = require('http')
 
-const requestHandler = (request, response) =&gt; {
+function requestHandler (request, response) {
   response.write('Hello World Node.js HTTP server!')
   response.end()
 }
@@ -166,7 +166,7 @@ const server = http.createServer(requestHandler)
 <pre><code class="language-javascript">const http = require('http')
 const PORT = 8000
 
-const requestHandler = (request, response) =&gt; {
+function requestHandler (request, response) {
   response.write('Hello World Node.js HTTP server!')
   response.end()
 }
@@ -188,7 +188,7 @@ server.listen(PORT, function (err) {
 </code></pre>
 <p>Caso nosso servidor esteja de pé irá aparecer a seguinte frase no terminal: <code>Servidor escutando na porta: 8000</code>.</p>
 <p>Se der errado por algum motivo, aparecerá: <code>Algo de ruim aconteceu, erro:</code>, com o erro em sequência.</p>
-<p>Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta <code>8000</code>. Sendo esse o caso, ou mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.</p>
+<p>Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta <code>8000</code>. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.</p>
 <a class="header" href="#ta-e-agora" id="ta-e-agora"><h3>Ta, e agora?</h3></a>
 <p>De que adianta um servidor HTTP se ele não for receber requisições não é mesmo? :O</p>
 <p>É agora que o Postman entra na jogada!</p>
@@ -217,7 +217,7 @@ server.listen(PORT, function (err) {
 <pre><code class="language-javascript">const http = require('http')
 const PORT = 8000
 
-const requestHandler = (request, response) =&gt; {
+function requestHandler (request, response) {
   console.log('URL:', request.url)
   console.log('Método:', request.method)
 

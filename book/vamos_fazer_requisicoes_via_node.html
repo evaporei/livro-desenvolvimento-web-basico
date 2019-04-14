@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Usando o pacote express - livro-http-node</title>
+        <title>Vamos fazer requisições via Node.js! - livro-http-node</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html" class="active"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">7.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">8.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html" class="active"><strong aria-hidden="true">7.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">8.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,108 +140,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#usando-o-pacote-express" id="usando-o-pacote-express"><h1>Usando o pacote express</h1></a>
-<p>Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é <code>express</code>.</p>
-<p>Para instalá-lo rode <code>npm install --save express</code>.</p>
-<pre><code class="language-shell">npm install --save express
-</code></pre>
-<p>Crie um arquivo <code>JavaScript</code> que será o ponto de entrada da nossa aplicação/servidor Express.</p>
-<pre><code class="language-shell"># cria o arquivo principal
-touch pacote_express.js
-</code></pre>
-<p>Abaixo está uma aplicação que se comporta de forma extremamente similar a última que codificamos.</p>
-<ul>
-<li>pacote_express.js</li>
-</ul>
-<pre><code class="language-javascript">const express = require('express')
-const PORT = 8000
-
-const application = express()
-
-application.get('/', function (request, response) {
-  console.log('URL:', request.url)
-  console.log('Método:', request.method)
-  response.status(200).send('Olá!')
-})
-
-application.listen(PORT)
-</code></pre>
-<p>O <code>application.get('/', handler)</code>, funciona similar ao que fizemos da última vez. Porém nesse caso, toda requisição que o servidor receber na rota base (root), irá chamar a função passada como segundo parâmetro.</p>
-<p>Para iniciar o servidor, é da mesma forma que antes, apenas troque o nome do arquivo e execute:</p>
-<pre><code class="language-shell">node pacote_express.js
-</code></pre>
-<p>Algumas coisas que podemos brincar com esse servidor são, ler dados da requisição do cliente, e retornar dados.</p>
-<a class="header" href="#lendo-dados-do-servidor" id="lendo-dados-do-servidor"><h2>Lendo dados do servidor</h2></a>
-<p>Exemplo de requisição ao servidor <code>express</code>:</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56098023-37927900-5ed2-11e9-893b-22a9668ba6ec.png" alt="postman-request-reading-data"/>
-</p>
-<p>Podemos observar por exemplo que por padrão é enviado um <code>header</code> ao cliente chamado <code>X-Powered-By</code>, devido ao <code>express</code>.</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56098026-3c572d00-5ed2-11e9-9f6b-93fb81b49d9b.png" alt="postman-request-reading-headers" width="400"/>
-</p>
-<a class="header" href="#alterando-os-headers" id="alterando-os-headers"><h2>Alterando os headers</h2></a>
-<p>Vamos supor que por motivos de segurança, você não quer que o mundo a fora saiba que seu servidor é feito em <code>express</code>.</p>
-<p>Para remover tal <code>header</code>, é necessário colocar a chamada para <code>application.disable('x-powered-by')</code> no código, ficando assim:</p>
-<pre><code class="language-javascript">const express = require('express')
-const PORT = 8000
-
-const application = express()
-
-application.get('/', function (request, response) {
-  console.log('URL:', request.url)
-  console.log('Método:', request.method)
-  response.status(200).send('Olá!')
-})
-
-application.disable('x-powered-by')
-
-application.listen(PORT)
-</code></pre>
-<p>Dessa forma, ao fazer uma requisição pelo <code>Postman</code>, não veremos mais o <code>header</code>.</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56098097-3ada3480-5ed3-11e9-85f1-12bb49ba970c.png" alt="postman-request-missing-express-header" width="400"/>
-</p>
-<p>Parabéns! Você acaba de modificar os <code>headers</code>, do seu servidor HTTP!</p>
-<a class="header" href="#lendo-os-headers-do-cliente-no-servidor" id="lendo-os-headers-do-cliente-no-servidor"><h2>Lendo os headers do cliente no servidor</h2></a>
-<p>Exemplo de requisição de um cliente com um <code>dado-legal</code> como <code>header</code> adicional:</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56098153-e4b9c100-5ed3-11e9-93f2-f97bb33c70d3.png" alt="postman-request-passing-headers"/>
-</p>
-<p>Para ler o <code>header</code> no servidor:</p>
-<pre><code class="language-javascript">const express = require('express')
-const PORT = 8000
-
-const application = express()
-
-application.get('/', function (request, response) {
-  console.log('URL:', request.url)
-  console.log('Método:', request.method)
-  console.log('Headers:', request.headers)
-  response.status(200).send('Olá!')
-})
-
-application.listen(PORT)
-</code></pre>
-<p>Ao fazer a requisição, no terminal ficará da seguinte forma:</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56098169-116dd880-5ed4-11e9-9358-4a9439fc9ad6.png" alt="terminal-headers-server"/>
-</p>
-<p>Como pôde ver, o <code>header</code>, <code>dado-legal</code> foi lido no servidor!</p>
-<p>Da mesmo forma do anterior, para fechar o servidor simplesmente clique no teclado <code>Ctrl</code> + <code>C</code>, ou feche o <code>terminal</code>/<code>Prompt de comando</code>.</p>
+                        <a class="header" href="#vamos-fazer-requisições-via-nodejs" id="vamos-fazer-requisições-via-nodejs"><h1>Vamos fazer requisições via Node.js!</h1></a>
+<p>Em breve!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="criando_um_servidor_com_o_modulo_http_do_node.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="usando_corpo_body_e_json.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="usando_corpo_body_e_json.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="o_que_e_uma_sdk.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -253,13 +166,13 @@ application.listen(PORT)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="criando_um_servidor_com_o_modulo_http_do_node.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="usando_corpo_body_e_json.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="usando_corpo_body_e_json.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="o_que_e_uma_sdk.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

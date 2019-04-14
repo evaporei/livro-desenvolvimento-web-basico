@@ -9,3 +9,5 @@
   - [Criando um servidor com o módulo HTTP do Node.js](./criando_um_servidor_com_o_modulo_http_do_node.md)
   - [Usando o pacote express](./usando_o_express.md)
   - [Usando o corpo/body e JSON](./usando_corpo_body_e_json.md)
+- [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
+- [O que é uma SDK?](./o_que_e_uma_sdk.md)

@@ -33,6 +33,8 @@ application.get('/', function (request, response) {
 application.listen(PORT)
 ```
 
+O `application.get('/', handler)`, funciona similar ao que fizemos da última vez. Porém nesse caso, toda requisição que o servidor receber na rota base (root), irá chamar a função passada como segundo parâmetro.
+
 Para iniciar o servidor, é da mesma forma que antes, apenas troque o nome do arquivo e execute:
 
 ```shell
@@ -117,4 +119,6 @@ Ao fazer a requisição, no terminal ficará da seguinte forma:
   <img src="https://user-images.githubusercontent.com/15306309/56098169-116dd880-5ed4-11e9-9358-4a9439fc9ad6.png" alt="terminal-headers-server"/>
 </p>
 
-Da mesmo forma do anterios, para fechar o servidor simplesmente clique no teclado `Ctrl` + `C`, ou feche o `terminal`/`Prompt de comando`.
+Como pôde ver, o `header`, `dado-legal` foi lido no servidor!
+
+Da mesmo forma do anterior, para fechar o servidor simplesmente clique no teclado `Ctrl` + `C`, ou feche o `terminal`/`Prompt de comando`.
