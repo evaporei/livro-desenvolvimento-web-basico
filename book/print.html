@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -156,6 +156,310 @@
 <p>Imagine um programa, que aguarda conexões chegarem a ele, em uma porta específica do computador.</p>
 <p>Portas são apenas entradas do mundo externo para com o computador e os programas que rodam nele.</p>
 <p>Ou seja, é possível que sejam iniciados por exemplo 3 servidores, cada um escutando a uma porta distinta no computador, a qual irá poder falar com o mundo a fora. É claro que podem ser bem mais, ou menos, isso é só um exemplo.</p>
+<p>Exemplo de computador/servidor com portas e programas:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098400-9659f180-5ed6-11e9-9389-dbafbd2af08f.png" alt="drawing1"/>
+</p>
+<a class="header" href="#como-é-a-dinâmica-da-comunicação-http" id="como-é-a-dinâmica-da-comunicação-http"><h1>Como é a dinâmica da comunicação HTTP?</h1></a>
+<p>Existem dois players, o cliente e o servidor. O servidor aguarda por requisições de clientes. E os clientes iniciam a conexão criando uma requisição ao servidor.</p>
+<p>Imagens de exemplo:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098460-20a25580-5ed7-11e9-9f1e-73fb8d951f78.png" alt="drawing1"/>
+</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098488-5e06e300-5ed7-11e9-8a6e-ad99cb0161b6.png" alt="drawing2"/>
+</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098524-927a9f00-5ed7-11e9-8415-700beafa0154.png" alt="drawing3"/>
+</p>
+<p>Esse fluxo é <strong>síncrono</strong>, ou seja, a ideia é que quando o cliente inicia uma conexão, ele irá esperar até sua resposta chegar. Caso ela não chegue no tempo esperado, a requisição pode ser terminada.</p>
+<a class="header" href="#o-que-costuma-girar-entorno-de-servidores-http" id="o-que-costuma-girar-entorno-de-servidores-http"><h1>O que costuma girar entorno de servidores HTTP?</h1></a>
+<p>O servidor/computador fica escutando por conexões em uma porta. Todo computador tem um IP (216.3.128.12), que é um identificador único na internet. Geralmente se configura um DNS (www.google.com), que nada mais é que um texto que direciona para um IP ou um conjunto de IPs.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098622-80e5c700-5ed8-11e9-92ae-4e70aec5c015.png" alt="drawing1"/>
+</p>
+<p>É comum também utilizar de <code>load balancers</code> para ficarem na frente dos servidores.</p>
+<p>Um <code>load balancer</code>, nada mais é que um servidor como qualquer outro, cuja função é receber requisições e direcioná-las a outros servidores, dividingo a carga de uma forma específica (igualmente por exemplo).</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098687-2c8f1700-5ed9-11e9-82f6-9fd595e70289.png" alt="drawing2"/>
+</p>
+<a class="header" href="#quais-são-os-dados-trafegados-no-protocólo-http" id="quais-são-os-dados-trafegados-no-protocólo-http"><h1>Quais são os dados trafegados no protocólo HTTP?</h1></a>
+<a class="header" href="#url" id="url"><h2>URL</h2></a>
+<p>Exemplo: <code>www.google.com/images?size=500&amp;free_use=false</code>.</p>
+<ul>
+<li>Nessa URL temos o domínio: <code>www.google.com</code>.</li>
+<li>A rota: <code>/images</code>.</li>
+<li>Dados <code>query string</code> (depois da interrogação): <code>size</code> valendo <code>500</code> e <code>free_use</code> valendo <code>false</code>.</li>
+</ul>
+<a class="header" href="#status-code" id="status-code"><h2>Status code</h2></a>
+<p>É um número que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
+<ul>
+<li><code>2xx</code>: deu tudo certo</li>
+<li><code>3xx</code>: redirecionamento</li>
+<li><code>4xx</code>: respostas de erro (algum campo faltando por exemplo)</li>
+<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou explodiu no meio da requisição)</li>
+</ul>
+<a class="header" href="#body" id="body"><h2>Body</h2></a>
+<p>O corpo da requisição. É basicamente o dado principal da requisição e resposta HTTP. Ele pode possuir diferentes formatos. Vamos supor que quero fazer login em uma página, o servidor precisa saber qual o meu <code>e-mail</code> e qual a minha <code>senha</code>. Geralmente esse tipo de dado é enviado pelo corpo, e na resposta nesse caso iremos receber um <code>status code</code> informando se os dados estão corretos (<code>200</code>, deu certo, e <code>400</code> deu errado). Exemplo utilizando o formato <code>JSON</code>:</p>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;email&quot;: &quot;email.bacana@provedor.com&quot;,
+  &quot;senha&quot;: &quot;1234&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>200</code> (ou seja, deu certo)</p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;login_token&quot;: &quot;j19fn19fhq9f0jr0adsyf08aefhf0&quot;
+}
+</code></pre>
+<a class="header" href="#headers" id="headers"><h2>Headers</h2></a>
+<p>São um conjunto de chaves e valores que podem ser enviados pelo cliente na requisição, e que também são respondidos pelo servidor. Neles costumam ser enviados dados como token de autenticação, qual o cliente fazendo a requisição (um browser/navegador, uma biblioteca, etc), tipo de conteúdo/formato (<code>JSON</code>, <code>form-data</code>, etc). Exemplo:</p>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>headers</code>:</p>
+<table><thead><tr><th align="center"> Chave </th><th align="center"> Valor </th></tr></thead><tbody>
+<tr><td align="center"> Content-Type </td><td align="center"> application/json </td></tr>
+<tr><td align="center"> User-Agent </td><td align="center"> Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 </td></tr>
+</tbody></table>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>headers</code>:</p>
+<table><thead><tr><th> Chave </th><th> Valor </th></tr></thead><tbody>
+<tr><td align="center"> X-Powered-By </td><td align="center"> Express </td></tr>
+<tr><td align="center"> Date </td><td align="center"> Sun, 14 Apr 2019 17:30:07 GMT </td></tr>
+</tbody></table>
+<a class="header" href="#método" id="método"><h2>Método</h2></a>
+<p>Indica o que será feito na requisição. Os principais são:</p>
+<ul>
+<li><code>GET</code>: cliente busca dados (listagem de dados, ou algo específico)</li>
+<li><code>POST</code>: cliente quer criar algo (criar uma sessão, um item, um produto, etc)</li>
+<li><code>PUT</code>: cliente quer alterar algo (um produto, item, etc)</li>
+<li><code>DELETE</code>: cliente quer deletar algo (um produto, item, etc)</li>
+</ul>
+<a class="header" href="#observações-1" id="observações-1"><h3>Observações</h3></a>
+<p>Todos os dados trafegados no HTTP seguem convenções, porém nada impede de quem implementa o servidor, de entregar algo diferente do esperado em uma requisição. Por exemplo, um cliente pode criar um produto enviando os dados no <code>corpo</code> da requisição, o servidor retornar o <code>status code</code> 200, e mesmo assim nenhum produto ter de fato sido criado.</p>
+<a class="header" href="#vamos-colocar-a-mão-na-massa-e-criar-um-servidor" id="vamos-colocar-a-mão-na-massa-e-criar-um-servidor"><h1>Vamos colocar a mão na massa e criar um servidor!</h1></a>
+<a class="header" href="#o-que-é-necessário-instalar" id="o-que-é-necessário-instalar"><h2>O que é necessário instalar?</h2></a>
+<ul>
+<li>Node.js (<a href="https://nodejs.org/en/">link p/ download</a>)</li>
+<li>Postman (<a href="https://www.getpostman.com/downloads/">link p/ download</a>)</li>
+</ul>
+<a class="header" href="#notas" id="notas"><h2>Notas</h2></a>
+<p>Tudo que irei mostrar aqui, será pelo terminal (no windows, PowerShell ou Prompt de Comando), exceto para fazer as requisições imitando um cliente, aí será pelo <code>Postman</code>.</p>
+<a class="header" href="#setup-do-servidor" id="setup-do-servidor"><h2>Setup do servidor</h2></a>
+<p>Crie uma pasta qualquer no seu computador, aqui iremos criar uma chamada <code>servidor</code>.</p>
+<pre><code class="language-shell">mkdir servidor
+</code></pre>
+<p>Depois entre na pasta e execute <code>npm init</code>.</p>
+<pre><code class="language-shell">cd servidor
+
+npm init
+</code></pre>
+<p>O <code>npm</code> (node package manager) irá perguntar por várias coisas, no momento pode apenas pressionar <code>Enter</code> várias vezes até acabar.</p>
+<p>Em cada sub capítulo iremos criar um novo arquivo <code>JavaScript</code> na mesma pasta, o qual iremos codificar em cima.</p>
+<a class="header" href="#criando-um-servidor-com-o-módulo-http-do-nodejs" id="criando-um-servidor-com-o-módulo-http-do-nodejs"><h1>Criando um servidor com o módulo HTTP do Node.js</h1></a>
+<p>Crie um arquivo <code>JavaScript</code> que será o ponto de entrada da nossa aplicação/servidor HTTP.</p>
+<pre><code class="language-shell"># cria o arquivo principal
+touch modulo_http.js
+</code></pre>
+<p>Abra seu editor favorito e vamos codificar o tal servidor!</p>
+<p>Primeiro vamos importar o módulo <code>http</code> da biblioteca padrão do <code>Node.js</code>.</p>
+<p>Caso esteja curioso, não é necessário acessá-la, mas aqui está a <a href="https://nodejs.org/api/http.html">documentação do módulo</a>.</p>
+<pre><code class="language-javascript">const http = require('http')
+</code></pre>
+<p>Bom, agora que já importamos o módulo, iremos criar um servidor, usando a função <code>createServer</code>. Ela recebe uma função, que será chamada para cada vez que o servidor receber uma requisição.</p>
+<pre><code class="language-javascript">const http = require('http')
+
+const requestHandler = (request, response) =&gt; {
+  response.write('Hello World Node.js HTTP server!')
+  response.end()
+}
+
+const server = http.createServer(requestHandler)
+</code></pre>
+<p>Os dados das variáveis <code>request</code>, e <code>response</code>, correspondem a dados do que conseguimos ler da requisição e o que podemos colocar na resposta.</p>
+<p>A chamada a <code>response.write</code> e <code>response.end</code>, servem para retornar ao cliente um texto escrito <code>Hello World Node.js HTTP server!</code>.</p>
+<p>Como vimos antes, para o servidor ficar acessível ao mundo externo, precisamos escolher uma porta do computador que esteja disponível. No caso iremos usar a <code>8000</code>, por nenhum motivo específico.</p>
+<pre><code class="language-javascript">const http = require('http')
+const PORT = 8000
+
+const requestHandler = (request, response) =&gt; {
+  response.write('Hello World Node.js HTTP server!')
+  response.end()
+}
+
+const server = http.createServer(requestHandler)
+
+server.listen(PORT, function (err) {
+  if (err) {
+    return console.log('Algo de ruim aconteceu, erro:', err)
+  }
+
+  console.log(`Servidor escutando na porta: ${PORT}`)
+})
+</code></pre>
+<p>Aqui está! Temos o servidor, a porta e a função que cuida de cada requisição! Uhullll!!!!</p>
+<p>Bora colocar esse servidor para funcionar?!</p>
+<p>Execute em seu terminal:</p>
+<pre><code class="language-shell">node modulo_http.js
+</code></pre>
+<p>Caso nosso servidor esteja de pé irá aparecer a seguinte frase no terminal: <code>Servidor escutando na porta: 8000</code>.</p>
+<p>Se der errado por algum motivo, aparecerá: <code>Algo de ruim aconteceu, erro:</code>, com o erro em sequência.</p>
+<p>Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta <code>8000</code>. Sendo esse o caso, ou mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.</p>
+<a class="header" href="#ta-e-agora" id="ta-e-agora"><h3>Ta, e agora?</h3></a>
+<p>De que adianta um servidor HTTP se ele não for receber requisições não é mesmo? :O</p>
+<p>É agora que o Postman entra na jogada!</p>
+<p align="center">
+  <img src="https://www.getpostman.com/img/v2/media-kit/Logo/PNG/pm-logo-vert.png" alt="postman-logo" width="200"/>
+</p>
+<p>Ao entrar ele irá pedir para fazer login, porém pode pular esse passo clicando no último texto que aparece na tela (<code>Take me straight to the app. I'll create an account another time.</code>):</p>
+<p align="center">
+  <img src="https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/signUp.png" alt="postman-start-screen"/>
+</p>
+<p>Na tela que o app começar, já poderá perceber que poderá criar uma requisição HTTP.</p>
+<ul>
+<li>A esquerda está o <code>método</code>, no caso o padrão é <code>GET</code>.</li>
+<li>Mais ao centro é possível colocar a <code>URL</code>, aqui coloque <code>localhost:8000</code>.</li>
+<li>Abaixo da <code>URL</code>, existem vários campos que podem ser preenchidos, como <code>Headers</code>, <code>Body</code>, etc.</li>
+<li>A direita tem o botão <code>Send</code> que serve para enviar a requisição.</li>
+<li>Abaixo do botão <code>Send</code> é informado qual o <code>status code</code> da resposta e quanto tempo levou.</li>
+</ul>
+<p>Pressione o botão <code>Send</code>, e deverá ver a resposta do nosso servidor Node.js!</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56097868-306a6b80-5ed0-11e9-9688-664518cf2bba.png" alt="postman-example-request"/>
+</p>
+<p>Parabéns!!!! Você conseguiu criar seu primeiro servidor e enviar requisições a ele!!!!!! :)</p>
+<p>Uma última coisa que da para fazer de legal, é adicionar <code>logs</code>, na sua aplicação/servidor, para que mostre qual a <code>rota</code> que o cliente está pedindo, qual o <code>método</code>, etc.</p>
+<p>Segue o código abaixo com alguns <code>logs</code> simples.</p>
+<pre><code class="language-javascript">const http = require('http')
+const PORT = 8000
+
+const requestHandler = (request, response) =&gt; {
+  console.log('URL:', request.url)
+  console.log('Método:', request.method)
+
+  response.write('Hello World Node.js HTTP server!')
+  response.end()
+}
+
+const server = http.createServer(requestHandler)
+
+server.listen(PORT, function (err) {
+  if (err) {
+    return console.log('Algo de ruim aconteceu, erro:', err)
+  }
+
+  console.log(`Servidor escutando na porta: ${PORT}`)
+})
+</code></pre>
+<p>Exemplo de requisição <code>POST</code>:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56097911-b71f4880-5ed0-11e9-9f84-8646dd230038.png" alt="postman-example-post-request"/>
+</p>
+<p>Logs no terminal após uma requisição com o método <code>GET</code>, e outra com o <code>POST</code>:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56097913-b7b7df00-5ed0-11e9-8ecb-82497f5fe473.png" alt="postman-example-post-request"/>
+</p>
+<p>Topper! :D</p>
+<p>Para fechar o servidor simplesmente clique no teclado <code>Ctrl</code> + <code>C</code>, ou feche o <code>terminal</code>/<code>Prompt de comando</code>.</p>
+<a class="header" href="#usando-o-pacote-express" id="usando-o-pacote-express"><h1>Usando o pacote express</h1></a>
+<p>Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é <code>express</code>.</p>
+<p>Para instalá-lo rode <code>npm install --save express</code>.</p>
+<pre><code class="language-shell">npm install --save express
+</code></pre>
+<p>Crie um arquivo <code>JavaScript</code> que será o ponto de entrada da nossa aplicação/servidor Express.</p>
+<pre><code class="language-shell"># cria o arquivo principal
+touch pacote_express.js
+</code></pre>
+<p>Abaixo está uma aplicação que se comporta de forma extremamente similar a última que codificamos.</p>
+<ul>
+<li>pacote_express.js</li>
+</ul>
+<pre><code class="language-javascript">const express = require('express')
+const PORT = 8000
+
+const application = express()
+
+application.get('/', function (request, response) {
+  console.log('URL:', request.url)
+  console.log('Método:', request.method)
+  response.status(200).send('Olá!')
+})
+
+application.listen(PORT)
+</code></pre>
+<p>Para iniciar o servidor, é da mesma forma que antes, apenas troque o nome do arquivo e execute:</p>
+<pre><code class="language-shell">node pacote_express.js
+</code></pre>
+<p>Algumas coisas que podemos brincar com esse servidor são, ler dados da requisição do cliente, e retornar dados.</p>
+<a class="header" href="#lendo-dados-do-servidor" id="lendo-dados-do-servidor"><h2>Lendo dados do servidor</h2></a>
+<p>Exemplo de requisição ao servidor <code>express</code>:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098023-37927900-5ed2-11e9-893b-22a9668ba6ec.png" alt="postman-request-reading-data"/>
+</p>
+<p>Podemos observar por exemplo que por padrão é enviado um <code>header</code> ao cliente chamado <code>X-Powered-By</code>, devido ao <code>express</code>.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098026-3c572d00-5ed2-11e9-9f6b-93fb81b49d9b.png" alt="postman-request-reading-headers" width="400"/>
+</p>
+<a class="header" href="#alterando-os-headers" id="alterando-os-headers"><h2>Alterando os headers</h2></a>
+<p>Vamos supor que por motivos de segurança, você não quer que o mundo a fora saiba que seu servidor é feito em <code>express</code>.</p>
+<p>Para remover tal <code>header</code>, é necessário colocar a chamada para <code>application.disable('x-powered-by')</code> no código, ficando assim:</p>
+<pre><code class="language-javascript">const express = require('express')
+const PORT = 8000
+
+const application = express()
+
+application.get('/', function (request, response) {
+  console.log('URL:', request.url)
+  console.log('Método:', request.method)
+  response.status(200).send('Olá!')
+})
+
+application.disable('x-powered-by')
+
+application.listen(PORT)
+</code></pre>
+<p>Dessa forma, ao fazer uma requisição pelo <code>Postman</code>, não veremos mais o <code>header</code>.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098097-3ada3480-5ed3-11e9-85f1-12bb49ba970c.png" alt="postman-request-missing-express-header" width="400"/>
+</p>
+<p>Parabéns! Você acaba de modificar os <code>headers</code>, do seu servidor HTTP!</p>
+<a class="header" href="#lendo-os-headers-do-cliente-no-servidor" id="lendo-os-headers-do-cliente-no-servidor"><h2>Lendo os headers do cliente no servidor</h2></a>
+<p>Exemplo de requisição de um cliente com um <code>dado-legal</code> como <code>header</code> adicional:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098153-e4b9c100-5ed3-11e9-93f2-f97bb33c70d3.png" alt="postman-request-passing-headers"/>
+</p>
+<p>Para ler o <code>header</code> no servidor:</p>
+<pre><code class="language-javascript">const express = require('express')
+const PORT = 8000
+
+const application = express()
+
+application.get('/', function (request, response) {
+  console.log('URL:', request.url)
+  console.log('Método:', request.method)
+  console.log('Headers:', request.headers)
+  response.status(200).send('Olá!')
+})
+
+application.listen(PORT)
+</code></pre>
+<p>Ao fazer a requisição, no terminal ficará da seguinte forma:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56098169-116dd880-5ed4-11e9-9358-4a9439fc9ad6.png" alt="terminal-headers-server"/>
+</p>
+<p>Da mesmo forma do anterios, para fechar o servidor simplesmente clique no teclado <code>Ctrl</code> + <code>C</code>, ou feche o <code>terminal</code>/<code>Prompt de comando</code>.</p>
+<a class="header" href="#usando-o-corpobody-e-json" id="usando-o-corpobody-e-json"><h1>Usando o corpo/body e JSON</h1></a>
+<p>Em breve!</p>
 
                     </main>
 
@@ -178,21 +482,6 @@
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Qual a ideia do livro? - livro-http-node</title>
+        <title>Vamos colocar a mão na massa e criar um servidor! - livro-http-node</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html" class="active"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,25 +140,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#livro-node-http" id="livro-node-http"><h1>livro-node-http</h1></a>
-<a class="header" href="#qual-a-ideia-do-livro" id="qual-a-ideia-do-livro"><h2>Qual a ideia do livro?</h2></a>
-<p>Mostrar com termos pouco técnicos e simples:</p>
+                        <a class="header" href="#vamos-colocar-a-mão-na-massa-e-criar-um-servidor" id="vamos-colocar-a-mão-na-massa-e-criar-um-servidor"><h1>Vamos colocar a mão na massa e criar um servidor!</h1></a>
+<a class="header" href="#o-que-é-necessário-instalar" id="o-que-é-necessário-instalar"><h2>O que é necessário instalar?</h2></a>
 <ul>
-<li>O que é um servidor Web HTTP</li>
-<li>Quais são os principais dados trafegados nesse tipo de conexão</li>
-<li>Como é o modelo de comunicação servidor e cliente do HTTP</li>
-<li>Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente</li>
-<li>Como consumir servidores HTTP via Node.js</li>
+<li>Node.js (<a href="https://nodejs.org/en/">link p/ download</a>)</li>
+<li>Postman (<a href="https://www.getpostman.com/downloads/">link p/ download</a>)</li>
 </ul>
-<a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
-<p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-http-node">Github</a>.</p>
+<a class="header" href="#notas" id="notas"><h2>Notas</h2></a>
+<p>Tudo que irei mostrar aqui, será pelo terminal (no windows, PowerShell ou Prompt de Comando), exceto para fazer as requisições imitando um cliente, aí será pelo <code>Postman</code>.</p>
+<a class="header" href="#setup-do-servidor" id="setup-do-servidor"><h2>Setup do servidor</h2></a>
+<p>Crie uma pasta qualquer no seu computador, aqui iremos criar uma chamada <code>servidor</code>.</p>
+<pre><code class="language-shell">mkdir servidor
+</code></pre>
+<p>Depois entre na pasta e execute <code>npm init</code>.</p>
+<pre><code class="language-shell">cd servidor
+
+npm init
+</code></pre>
+<p>O <code>npm</code> (node package manager) irá perguntar por várias coisas, no momento pode apenas pressionar <code>Enter</code> várias vezes até acabar.</p>
+<p>Em cada sub capítulo iremos criar um novo arquivo <code>JavaScript</code> na mesma pasta, o qual iremos codificar em cima.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="quais_sao_os_dados_trafegados_no_protocolo_http.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
+                        
+                            <a rel="next" href="criando_um_servidor_com_o_modulo_http_do_node.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -168,7 +183,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="quais_sao_os_dados_trafegados_no_protocolo_http.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
+                
+                    <a href="criando_um_servidor_com_o_modulo_http_do_node.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Qual a ideia do livro? - livro-http-node</title>
+        <title>Quais são os dados trafegados no protocólo HTTP? - livro-http-node</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html" class="active"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,25 +140,85 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#livro-node-http" id="livro-node-http"><h1>livro-node-http</h1></a>
-<a class="header" href="#qual-a-ideia-do-livro" id="qual-a-ideia-do-livro"><h2>Qual a ideia do livro?</h2></a>
-<p>Mostrar com termos pouco técnicos e simples:</p>
+                        <a class="header" href="#quais-são-os-dados-trafegados-no-protocólo-http" id="quais-são-os-dados-trafegados-no-protocólo-http"><h1>Quais são os dados trafegados no protocólo HTTP?</h1></a>
+<a class="header" href="#url" id="url"><h2>URL</h2></a>
+<p>Exemplo: <code>www.google.com/images?size=500&amp;free_use=false</code>.</p>
 <ul>
-<li>O que é um servidor Web HTTP</li>
-<li>Quais são os principais dados trafegados nesse tipo de conexão</li>
-<li>Como é o modelo de comunicação servidor e cliente do HTTP</li>
-<li>Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente</li>
-<li>Como consumir servidores HTTP via Node.js</li>
+<li>Nessa URL temos o domínio: <code>www.google.com</code>.</li>
+<li>A rota: <code>/images</code>.</li>
+<li>Dados <code>query string</code> (depois da interrogação): <code>size</code> valendo <code>500</code> e <code>free_use</code> valendo <code>false</code>.</li>
 </ul>
-<a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
-<p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-http-node">Github</a>.</p>
+<a class="header" href="#status-code" id="status-code"><h2>Status code</h2></a>
+<p>É um número que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
+<ul>
+<li><code>2xx</code>: deu tudo certo</li>
+<li><code>3xx</code>: redirecionamento</li>
+<li><code>4xx</code>: respostas de erro (algum campo faltando por exemplo)</li>
+<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou explodiu no meio da requisição)</li>
+</ul>
+<a class="header" href="#body" id="body"><h2>Body</h2></a>
+<p>O corpo da requisição. É basicamente o dado principal da requisição e resposta HTTP. Ele pode possuir diferentes formatos. Vamos supor que quero fazer login em uma página, o servidor precisa saber qual o meu <code>e-mail</code> e qual a minha <code>senha</code>. Geralmente esse tipo de dado é enviado pelo corpo, e na resposta nesse caso iremos receber um <code>status code</code> informando se os dados estão corretos (<code>200</code>, deu certo, e <code>400</code> deu errado). Exemplo utilizando o formato <code>JSON</code>:</p>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;email&quot;: &quot;email.bacana@provedor.com&quot;,
+  &quot;senha&quot;: &quot;1234&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>200</code> (ou seja, deu certo)</p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;login_token&quot;: &quot;j19fn19fhq9f0jr0adsyf08aefhf0&quot;
+}
+</code></pre>
+<a class="header" href="#headers" id="headers"><h2>Headers</h2></a>
+<p>São um conjunto de chaves e valores que podem ser enviados pelo cliente na requisição, e que também são respondidos pelo servidor. Neles costumam ser enviados dados como token de autenticação, qual o cliente fazendo a requisição (um browser/navegador, uma biblioteca, etc), tipo de conteúdo/formato (<code>JSON</code>, <code>form-data</code>, etc). Exemplo:</p>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>headers</code>:</p>
+<table><thead><tr><th align="center"> Chave </th><th align="center"> Valor </th></tr></thead><tbody>
+<tr><td align="center"> Content-Type </td><td align="center"> application/json </td></tr>
+<tr><td align="center"> User-Agent </td><td align="center"> Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 </td></tr>
+</tbody></table>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>headers</code>:</p>
+<table><thead><tr><th> Chave </th><th> Valor </th></tr></thead><tbody>
+<tr><td align="center"> X-Powered-By </td><td align="center"> Express </td></tr>
+<tr><td align="center"> Date </td><td align="center"> Sun, 14 Apr 2019 17:30:07 GMT </td></tr>
+</tbody></table>
+<a class="header" href="#método" id="método"><h2>Método</h2></a>
+<p>Indica o que será feito na requisição. Os principais são:</p>
+<ul>
+<li><code>GET</code>: cliente busca dados (listagem de dados, ou algo específico)</li>
+<li><code>POST</code>: cliente quer criar algo (criar uma sessão, um item, um produto, etc)</li>
+<li><code>PUT</code>: cliente quer alterar algo (um produto, item, etc)</li>
+<li><code>DELETE</code>: cliente quer deletar algo (um produto, item, etc)</li>
+</ul>
+<a class="header" href="#observações" id="observações"><h3>Observações</h3></a>
+<p>Todos os dados trafegados no HTTP seguem convenções, porém nada impede de quem implementa o servidor, de entregar algo diferente do esperado em uma requisição. Por exemplo, um cliente pode criar um produto enviando os dados no <code>corpo</code> da requisição, o servidor retornar o <code>status code</code> 200, e mesmo assim nenhum produto ter de fato sido criado.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="o_que_costuma_girar_entorno_de_servidores_http.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
+                        
+                            <a rel="next" href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -168,7 +228,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="o_que_costuma_girar_entorno_de_servidores_http.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
+                
+                    <a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
