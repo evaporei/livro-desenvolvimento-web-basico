@@ -1,4 +1,4 @@
-# livro-node-http
+# livro-desenvolvimento-web-basico
 
 ## Qual a ideia do livro?
 
@@ -12,4 +12,4 @@ Mostrar com termos pouco técnicos e simples:
 
 ## Observações
 
-Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma `Issue` ou `Pull Request` no projeto do [Github](https://github.com/otaviopace/livro-http-node).
+Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma `Issue` ou `Pull Request` no projeto do [Github](https://github.com/otaviopace/livro-desenvolvimento-web-basico).
