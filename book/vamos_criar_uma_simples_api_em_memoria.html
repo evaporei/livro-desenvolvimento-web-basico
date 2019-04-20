@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Qual a ideia do livro? - livro-desenvolvimento-web-basico</title>
+        <title>Vamos criar uma simples API em memória! - livro-desenvolvimento-web-basico</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html" class="active"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html" class="active"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,27 +140,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#livro-desenvolvimento-web-basico" id="livro-desenvolvimento-web-basico"><h1>livro-desenvolvimento-web-basico</h1></a>
-<a class="header" href="#qual-a-ideia-do-livro" id="qual-a-ideia-do-livro"><h2>Qual a ideia do livro?</h2></a>
-<p>Mostrar com termos pouco técnicos e simples:</p>
+                        <a class="header" href="#vamos-criar-uma-simples-api-em-memória" id="vamos-criar-uma-simples-api-em-memória"><h1>Vamos criar uma simples API em memória!</h1></a>
+<p>O que iremos construir?</p>
+<p>Um servidor HTTP de produtos. Teremos 3 rotas iniciais, são elas:</p>
 <ul>
-<li>O que é um servidor Web HTTP</li>
-<li>Quais são os principais dados trafegados nesse tipo de conexão</li>
-<li>Como é o modelo de comunicação servidor e cliente do HTTP</li>
-<li>Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente</li>
-<li>Como consumir servidores HTTP via Node.js</li>
+<li>Autenticação (<code>POST /auth</code>)</li>
+<li>Criação de produto (<code>POST /products</code>)</li>
+<li>Listagem de produtos (<code>GET /products</code>)</li>
 </ul>
-<a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
-<p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico">Github</a>.</p>
+<p>Como assim em memória?</p>
+<p>Quando o servidor for desligado, todos os dados serão perdidos.</p>
+<p>Mas por que fazer assim?</p>
+<p>Simplesmente por simplicidade. Lembre-se que tudo que salvarmos na memória, poderia simplesmente estar em um banco de dados.</p>
+<p>Bora!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="usando_corpo_body_e_json.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="o_que_e_um_servidor_web_http.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="vamos_fazer_requisicoes_via_node.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -172,9 +177,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="usando_corpo_body_e_json.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a href="o_que_e_um_servidor_web_http.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="vamos_fazer_requisicoes_via_node.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
