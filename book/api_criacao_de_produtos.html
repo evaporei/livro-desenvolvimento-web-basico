@@ -1,0 +1,453 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Criação de produtos - livro-desenvolvimento-web-basico</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produtos.html" class="active"><strong aria-hidden="true">7.3.</strong> Criação de produtos</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">livro-desenvolvimento-web-basico</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#criação-de-produtos" id="criação-de-produtos"><h1>Criação de produtos</h1></a>
+<p>Esse capítulo terá como base o código feito no capítulo de autenticação.</p>
+<a class="header" href="#fluxo-da-informação" id="fluxo-da-informação"><h2>Fluxo da informação</h2></a>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56461196-12e04a80-6385-11e9-8cd3-475e9f948b4c.png" alt="sequence-diagram-information-flow" width="500" />
+</p>
+<a class="header" href="#caso-de-sucesso" id="caso-de-sucesso"><h3>Caso de sucesso</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer j19fn19fhq9f0jr0adsyf08aefhf0</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;colher de cozinha&quot;,
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>201</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;cjuppslcp0000t05j1tpf2jxv&quot;,
+  &quot;name&quot;: &quot;colher de cozinha&quot;,
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<a class="header" href="#caso-de-erro-de-autenticação" id="caso-de-erro-de-autenticação"><h3>Caso de erro de autenticação</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer TOKEN_INEXISTENTE</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;colher de cozinha&quot;,
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>401</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;Unauthorized&quot;
+}
+</code></pre>
+<a class="header" href="#caso-de-erro-de-produto-já-cadastrado" id="caso-de-erro-de-produto-já-cadastrado"><h3>Caso de erro de produto já cadastrado</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer j19fn19fhq9f0jr0adsyf08aefhf0</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;colher de cozinha&quot;,
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>400</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;This product name already exists&quot;
+}
+</code></pre>
+<a class="header" href="#caso-de-erro-de-nome-ou-preço-faltando" id="caso-de-erro-de-nome-ou-preço-faltando"><h3>Caso de erro de nome ou preço faltando</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer j19fn19fhq9f0jr0adsyf08aefhf0</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>400</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;The product name is missing&quot;
+}
+</code></pre>
+<a class="header" href="#implementação" id="implementação"><h2>Implementação</h2></a>
+<a class="header" href="#lógica-principal" id="lógica-principal"><h3>Lógica principal</h3></a>
+<p>Primeiro iremos implementar a lógica principal, depois iremos cuidar da autenticação.</p>
+<pre><code class="language-javascript">// imports/setup...
+
+// app.post('/auth', function (req, res) {
+// ...
+// })
+
+const products = []
+
+app.post('/products', function (req, res) {
+  const newProduct = {
+    id: cuid(),
+    name: req.body.name,
+    price: req.body.price
+  }
+
+  products.push(newProduct)
+
+  res.status(201).send(newProduct)
+})
+
+// app.listen ...
+</code></pre>
+<p>No caso nosso produto tem apenas nome (<code>name</code>) e preço (<code>price</code>). O campo <code>id</code>, é único e é gerado no backend, o usuário não o informa.</p>
+<p>No retorno simplesmente retornamos o produto criado caso tenha dado certo.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56461180-ddd3f800-6384-11e9-844f-dcd915af4b1e.png" alt="postman-creation-request" />
+</p>
+<p>Porém esse código não cobre o caso do nome e/ou preço estarem faltando. Segue abaixo como fazer a <strong>validação</strong> do nome, do preço, e se o produto já existe.</p>
+<pre><code class="language-javascript">// ...
+
+const products = []
+
+app.post('/products', function (req, res) {
+  if (req.body.name == null) {
+    res.status(400).send({
+      message: 'The product name is missing'
+    })
+    return
+  }
+
+  if (req.body.price == null) {
+    res.status(400).send({
+      message: 'The product price is missing'
+    })
+    return
+  }
+
+  const productAlreadyExists = products.find(function (product) {
+    return product.name == req.body.name
+  })
+
+  if (productAlreadyExists) {
+    res.status(400).send({
+      message: 'This product name already exists' 
+    })
+    return
+  }
+
+  const newProduct = {
+    id: cuid(),
+    name: req.body.name,
+    price: req.body.price
+  }
+
+  products.push(newProduct)
+
+  res.status(201).send(newProduct)
+})
+
+// ...
+</code></pre>
+<p>Yesss!! Conseguimos fazer nossa primeira rota de criação de algum recurso!!!!</p>
+<p>Ainda tem a autenticação, lembre-se que o código acima <strong>não valida</strong> várias coisas, como o <strong>tipo dos campos</strong>, se eles estão <strong>vazios</strong>, se o preço é <strong>negativo</strong>, etc. Isso é somente um exemplo de como validar coisas mais básicas.</p>
+<a class="header" href="#autenticação" id="autenticação"><h3>Autenticação</h3></a>
+<p>Algo está faltando, precisamos bloquear quem não pode fazer a requisição! Não queremos que pessoas sem acessos consigam realizar ações em nossa API.</p>
+<p>A biblioteca <code>express</code> permite que sejam passadas diversas funções para tratar uma rota, assim podemos validar se o cliente está autenticado, e caso esteja, a função que criamos que de fato cria o usuário, será chamada.</p>
+<p>Exemplo, considere uma rota <code>/rota_legal</code> que pode receber requisições <code>POST</code>:</p>
+<pre><code class="language-javascript">function parte1 (req, res, next) {
+  if (algo_faltando) {
+    res.status(401).send({ message: &quot;Algo está faltando!!!&quot; })
+    return
+  }
+
+  // chama parte2
+  next()
+}
+
+function parte2 (req, res) {
+  // lógica principal da rota
+}
+
+app.post('/rota_legal', parte1, parte2)
+</code></pre>
+<p>Nesse caso, a função <code>parte2</code> só será chamada caso a função <code>parte1</code> chame a função <code>next</code>. Se não, a requisição irá parar por alí.</p>
+<p>Bora criar a autenticação no nosso app! Conforme o que foi colocado nos exemplos do começo do capítulo, iremos aceitar um <code>header</code> chamado <code>Authorization</code>. Ele terá duas partes, uma é o prefixo <code>Bearer</code>, isso é só uma palavra comum que costumam utilizar para esse tipo de coisa, e a segunda parte é o token em sí, gerado pela rota <code>/auth</code> do último capítulo.</p>
+<p>O código fica assim:</p>
+<pre><code class="language-javascript">// ...
+
+function authorizationMiddleware (req, res, next) {
+  const authorizationHeader = req.get('authorization')
+
+  if (!authorizationHeader) {
+    res.status(401).send({ message: 'Authorization header missing' })
+    return
+  }
+
+  const authorizationHeaderParts = authorizationHeader.split(' ')
+
+  const bearer = authorizationHeaderParts[0]
+  const token = authorizationHeaderParts[1]
+
+  if (bearer != 'Bearer') {
+    res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
+    return
+  }
+
+  const isValidToken = tokens.find(function (validToken) {
+    return validToken == token
+  })
+
+  if (!isValidToken) {
+    res.status(401).send({ message: 'Authorization header is not valid' })
+    return
+  }
+
+  next()
+}
+
+app.post('/products', authorizationMiddleware, function (req, res) {
+// lógica principal já implementada...
+})
+
+// ...
+</code></pre>
+<p>E a requisição de sucesso fica assim:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56461583-a87ed880-638b-11e9-9710-bc9c06fa2d49.png" alt="postman-auth-request" />
+</p>
+<p>No caso para dar certo, vai precisar gerar um <code>token</code> na rota <code>/auth</code> com as credenciais corretas.</p>
+<p>Uhulll ta tudo feito da criação de produtos!!!! :)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="api_autenticacao.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="vamos_fazer_requisicoes_via_node.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="api_autenticacao.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="vamos_fazer_requisicoes_via_node.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
