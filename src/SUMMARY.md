@@ -13,5 +13,6 @@
   - [Setup](./api_setup.md)
   - [Autenticação](./api_autenticacao.md)
   - [Criação de produtos](./api_criacao_de_produtos.md)
+  - [Listagem de produtos](./api_listagem_de_produtos.md)
 - [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
