@@ -141,7 +141,54 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#usando-o-corpobody-e-json" id="usando-o-corpobody-e-json"><h1>Usando o corpo/body e JSON</h1></a>
-<p>Em breve!</p>
+<p>Agora iremos passar dados pelo corpo (<code>body</code>) da requisição, e retornar dados pelo corpo (<code>body</code>) da resposta.</p>
+<p>O <code>express</code> não faz o <code>parse</code> (análise e preparo) do corpo da requisição, portanto para fazer isso, iremos usar um <code>middleware</code> (uma função que é chamada em cada requisição, antes do nosso código) chamado <code>body-parser</code>.</p>
+<p>Para instalá-lo, execute:</p>
+<pre><code class="language-shell">npm install --save body-parser
+</code></pre>
+<p>Vamos criar um novo arquivo <code>JavaScript</code> para isso!</p>
+<pre><code class="language-shell"># cria o arquivo principal
+touch usando_body.js
+</code></pre>
+<p>Nosso arquivo vai começar com o seguinte:</p>
+<pre><code class="language-javascript">const express = require('express')
+const PORT = 8000
+
+const app = express()
+
+app.listen(PORT)
+</code></pre>
+<p>Agora vamos adicionar o <code>body-parser</code> para poder ler o corpo da requisição no nosso servidor.</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.listen(PORT)
+</code></pre>
+<p>Pronto! Agora iremos adicionar uma rota que irá receber um conteúdo no formato <code>JSON</code> e irá retornar o mesmo no corpo da resposta.</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.post('/', function (req, res) {
+  res.send(req.body)
+})
+
+app.listen(PORT)
+</code></pre>
+<p>Temos nosso servidor, que tal testarmos para ver se funciona via <code>Postman</code>?</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56458556-c2ee8d00-635e-11e9-99fb-b400871a6723.png" alt="postman-returning-same-body"/>
+</p>
+<p>Uhulll!!! Funciona :)</p>
 
                     </main>
 
@@ -180,21 +227,6 @@
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
