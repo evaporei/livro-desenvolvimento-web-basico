@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Usando o corpo/body e JSON - livro-desenvolvimento-web-basico</title>
+        <title>Setup - livro-desenvolvimento-web-basico</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html" class="active"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html" class="active"><strong aria-hidden="true">7.1.</strong> Setup</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,25 +140,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#usando-o-corpobody-e-json" id="usando-o-corpobody-e-json"><h1>Usando o corpo/body e JSON</h1></a>
-<p>Agora iremos passar dados pelo corpo (<code>body</code>) da requisição, e retornar dados pelo corpo (<code>body</code>) da resposta.</p>
-<p>O <code>express</code> não faz o <code>parse</code> (análise e preparo) do corpo da requisição, portanto para fazer isso, iremos usar um <code>middleware</code> (uma função que é chamada em cada requisição, antes do nosso código) chamado <code>body-parser</code>.</p>
-<p>Para instalá-lo, execute:</p>
-<pre><code class="language-shell">npm install --save body-parser
+                        <a class="header" href="#setup" id="setup"><h1>Setup</h1></a>
+<p>Recomendo criar uma outra pasta somente para esse projeto.</p>
+<p>Execute <code>npm init</code> e pode pressionar <code>Enter</code> até as opções do <code>npm</code> acabarem.</p>
+<a class="header" href="#dependências" id="dependências"><h2>Dependências</h2></a>
+<p>Iremos precisar somente do <code>express</code>, e do <code>body-parser</code>. Para instalá-las:</p>
+<pre><code class="language-shell">npm install --save express body-parser
 </code></pre>
-<p>Vamos criar um novo arquivo <code>JavaScript</code> para isso!</p>
-<pre><code class="language-shell"># cria o arquivo principal
-touch usando_body.js
-</code></pre>
-<p>Nosso arquivo vai começar com o seguinte:</p>
-<pre><code class="language-javascript">const express = require('express')
-const PORT = 8000
-
-const app = express()
-
-app.listen(PORT)
-</code></pre>
-<p>Agora vamos adicionar o <code>body-parser</code> para poder ler o corpo da requisição no nosso servidor.</p>
+<p>Esse será o servidor base para o projeto:</p>
 <pre><code class="language-javascript">const express = require('express')
 const bodyParser = require('body-parser')
 const PORT = 8000
@@ -169,39 +158,25 @@ app.use(bodyParser.json())
 
 app.listen(PORT)
 </code></pre>
-<p>Pronto! Agora iremos adicionar uma rota que irá receber um conteúdo no formato <code>JSON</code> e irá retornar o mesmo no corpo da resposta.</p>
-<pre><code class="language-javascript">const express = require('express')
-const bodyParser = require('body-parser')
-const PORT = 8000
-
-const app = express()
-
-app.use(bodyParser.json())
-
-app.post('/', function (req, res) {
-  res.send(req.body)
-})
-
-app.listen(PORT)
-</code></pre>
-<p>Temos nosso servidor, que tal testarmos para ver se funciona via <code>Postman</code>?</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56458556-c2ee8d00-635e-11e9-99fb-b400871a6723.png" alt="postman-returning-same-body"/>
-</p>
-<p>Uhulll!!! Funciona :)</p>
+<a class="header" href="#facilitando-o-desenvolvimento" id="facilitando-o-desenvolvimento"><h2>Facilitando o desenvolvimento</h2></a>
+<p>Essa parte é opcional, mas irá facilitar o desenvolvimento.</p>
+<p>Existe uma ferramenta de linha de comando chamada <code>nodemon</code> a qual executa o script Node.js passado por argumento (<code>nodemon arquivo.js</code>), e toda vez que o arquivo for alterado.</p>
+<p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
+<a class="header" href="#notas" id="notas"><h2>Notas</h2></a>
+<p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/api">api do repositório no Github</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="usando_o_express.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="vamos_criar_uma_simples_api_em_memoria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="vamos_criar_uma_simples_api_em_memoria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="vamos_fazer_requisicoes_via_node.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -213,13 +188,13 @@ app.listen(PORT)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="usando_o_express.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="vamos_criar_uma_simples_api_em_memoria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="vamos_criar_uma_simples_api_em_memoria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="vamos_fazer_requisicoes_via_node.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
