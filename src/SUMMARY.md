@@ -11,5 +11,6 @@
   - [Usando o corpo/body e JSON](./usando_corpo_body_e_json.md)
 - [Vamos criar uma simples API em memória!](./vamos_criar_uma_simples_api_em_memoria.md)
   - [Setup](./api_setup.md)
+  - [Autenticação](./api_autenticacao.md)
 - [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)

@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -546,6 +546,142 @@ app.listen(PORT)
 <p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
 <a class="header" href="#notas-1" id="notas-1"><h2>Notas</h2></a>
 <p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/api">api do repositório no Github</a>.</p>
+<a class="header" href="#autenticação" id="autenticação"><h1>Autenticação</h1></a>
+<p>Antes de implementar a autenticação, observe abaixo o fluxo da informação:</p>
+<a class="header" href="#fluxo-da-informação" id="fluxo-da-informação"><h2>Fluxo da informação</h2></a>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56459043-d13fa780-6364-11e9-9796-5a80bab302d3.png" alt="sequence-diagram-information-flow" width="400" />
+</p>
+<p>Olhando mais de uma perspectiva HTTP, ficaria algo assim:</p>
+<a class="header" href="#caso-de-sucesso" id="caso-de-sucesso"><h3>Caso de sucesso</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/auth</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;username&quot;: &quot;admin&quot;,
+  &quot;password&quot;: &quot;1234&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>201</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;token&quot;: &quot;j19fn19fhq9f0jr0adsyf08aefhf0&quot;
+}
+</code></pre>
+<a class="header" href="#caso-de-erro" id="caso-de-erro"><h3>Caso de erro</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/auth</code></p>
+<p><code>método</code>: <code>POST</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;username&quot;: &quot;admin&quot;,
+  &quot;password&quot;: &quot;SENHA ERRADA&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>401</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;Unauthorized&quot;
+}
+</code></pre>
+<a class="header" href="#implementação" id="implementação"><h2>Implementação</h2></a>
+<p>Como é possível ver abaixo, temos dois caminhos, um que o cliente passou o usuário e senha corretos, e outro que não.</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.post('/auth', function (req, res) {
+  if (req.body.username == 'admin' &amp;&amp; req.body.password == '1234') {
+    res.status(201).send({
+      token: 'AQUI TEREMOS O TOKEN FUTURAMENTE'
+    })
+  } else {
+    res.status(401).send({
+      message: 'Unauthorized'
+    })
+  }
+})
+
+app.listen(PORT)
+</code></pre>
+<a class="header" href="#testando-via-postman" id="testando-via-postman"><h3>Testando via Postman:</h3></a>
+<a class="header" href="#caso-de-sucesso-1" id="caso-de-sucesso-1"><h4>Caso de sucesso</h4></a>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56459270-83786e80-6367-11e9-806a-9b1e638989a2.png" alt="success-case"/>
+</p>
+<a class="header" href="#caso-de-erro-1" id="caso-de-erro-1"><h4>Caso de erro</h4></a>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56459297-e964f600-6367-11e9-9f01-d0220b08b7a2.png" alt="error-case"/>
+</p>
+<a class="header" href="#ajustando-o-token" id="ajustando-o-token"><h3>Ajustando o token!</h3></a>
+<p>Para gerar o token, iremos utilizar de uma biblioteca que gera um texto aleatório grande que tem baixas chances de colisão: <code>cuid</code>.</p>
+<p>Portanto é necessário instalá-la utilizando <code>npm install --save cuid</code> em seu terminal.</p>
+<p>Vai ficar assim o código após a adição da biblioteca:</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const cuid = require('cuid')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.post('/auth', function (req, res) {
+  if (req.body.username == 'admin' &amp;&amp; req.body.password == '1234') {
+    res.status(201).send({
+      token: cuid()
+    })
+  } else {
+    res.status(401).send({
+      message: 'Unauthorized'
+    })
+  }
+})
+
+app.listen(PORT)
+</code></pre>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56459404-5f1d9180-6369-11e9-98c3-0f123e8d3ec4.png" alt="cuid"/>
+</p>
+<p>Além disso, precisamos também guardar esses tokens, para que quando alguém fizer uma requisição para criar ou listar um produto, por exemplo, possamos validar se o token enviado está correto.</p>
+<pre><code class="language-javascript">// ...
+
+const tokens = []
+
+app.post('/auth', function (req, res) {
+  if (req.body.username == 'admin' &amp;&amp; req.body.password == '1234') {
+    const token = cuid()
+
+    tokens.push(token)
+
+    res.status(201).send({
+      token: token
+    })
+  } else {
+    res.status(401).send({
+      message: 'Unauthorized'
+    })
+  }
+})
+
+// ...
+</code></pre>
+<p>Pronto, terminamos! :)</p>
 <a class="header" href="#vamos-fazer-requisições-via-nodejs" id="vamos-fazer-requisições-via-nodejs"><h1>Vamos fazer requisições via Node.js!</h1></a>
 <p>Em breve!</p>
 <a class="header" href="#o-que-é-uma-sdk" id="o-que-é-uma-sdk"><h1>O que é uma SDK?</h1></a>
