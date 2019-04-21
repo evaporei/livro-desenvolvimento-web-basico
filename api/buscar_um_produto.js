@@ -140,27 +140,4 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
   res.status(200).send(productFound)
 })
 
-app.patch('/products/:id', authorizationMiddleware, function (req, res) {
-  const productFound = products.find(function (product) {
-    return req.params.id == product.id
-  })
-
-  if (!productFound) {
-    res.status(404).send({
-      message: 'No product exists with this id'
-    })
-    return
-  }
-
-  if (req.body.name != null) {
-    productFound.name = req.body.name
-  }
-
-  if (req.body.price != null) {
-    productFound.price = req.body.price
-  }
-
-  res.status(200).send(productFound)
-})
-
 app.listen(PORT)

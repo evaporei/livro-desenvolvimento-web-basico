@@ -1,11 +1,11 @@
-# Edição de produtos
+# Buscar somente um produto
 
-Esse capítulo toma como base o código do capítulo de busca de um produto.
+Esse capítulo toma como base o código do capítulo de listagem de produtos.
 
 ## Fluxo da informação
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56464573-198db280-63c3-11e9-82aa-5e80e779f4eb.png" alt="sequence-diagram-information-flow" width="500" />
+  <img src="https://user-images.githubusercontent.com/15306309/56464695-74280e00-63c5-11e9-9745-b0d643233f01.png" alt="sequence-diagram-information-flow" width="500" />
 </p>
 
 ### Caso de sucesso
@@ -13,17 +13,10 @@ Esse capítulo toma como base o código do capítulo de busca de um produto.
 
 `URL`: `/products/cjuq20sms0001j35j9mbf246v`
 
-`método`: `PATCH`
+`método`: `GET`
 
 `headers`:
 - `Authorization`: `Bearer j19fn19fhq9f0jr0adsyf08aefhf0`
-
-`body`:
-```json
-{
-  "name": "bolinha de ping pong"
-}
-```
 
 > Resposta
 
@@ -33,7 +26,7 @@ Esse capítulo toma como base o código do capítulo de busca de um produto.
 ```json
 {
   "id": "cjuq20sms0001j35j9mbf246v",
-  "name": "bolinha de ping pong",
+  "name": "boneco do pikachu",
   "price": 5.34
 }
 ```
@@ -43,17 +36,10 @@ Esse capítulo toma como base o código do capítulo de busca de um produto.
 
 `URL`: `/products/id_nao_existente`
 
-`método`: `PATCH`
+`método`: `GET`
 
 `headers`:
 - `Authorization`: `Bearer j19fn19fhq9f0jr0adsyf08aefhf0`
-
-`body`:
-```json
-{
-  "name": "bolinha de ping pong"
-}
-```
 
 > Resposta
 
@@ -71,7 +57,7 @@ Esse capítulo toma como base o código do capítulo de busca de um produto.
 
 `URL`: `/products/cjuq20sms0001j35j9mbf246v`
 
-`método`: `PATCH`
+`método`: `GET`
 
 `headers`:
 - `Authorization`: `Bearer TOKEN_INEXISTENTE`
@@ -117,15 +103,7 @@ app.post('/products', authorizationMiddleware, function (req, res) {
 // ...
 })
 
-app.get('/products', authorizationMiddleware, function (req, res) {
-// ...
-})
-
 app.get('/products/:id', authorizationMiddleware, function (req, res) {
-// ...
-})
-
-app.patch('/products/:id', authorizationMiddleware, function (req, res) {
   const productFound = products.find(function (product) {
     return req.params.id == product.id
   })
@@ -137,22 +115,14 @@ app.patch('/products/:id', authorizationMiddleware, function (req, res) {
     return
   }
 
-  if (req.body.name != null) {
-    productFound.name = req.body.name
-  }
-
-  if (req.body.price != null) {
-    productFound.price = req.body.price
-  }
-
   res.status(200).send(productFound)
 })
 
 // app.listen...
 ```
 
-Assim como no último capítulo, o `:id` acaba por virar uma variável graças ao `express`.
+Observe que só de colocar o `:id` no final da URL, o próprio `express` já coloca uma variável dentro do objeto `req.params` com o valor enviado.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15306309/56464574-198db280-63c3-11e9-9dbc-98a1e21c7a37.png" alt="sample-request-edit" />
+  <img src="https://user-images.githubusercontent.com/15306309/56464716-fa445480-63c5-11e9-91ec-66e41a994e27.png" alt="sample-request-show-one" />
 </p>
