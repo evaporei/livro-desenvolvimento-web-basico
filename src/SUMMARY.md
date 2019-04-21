@@ -20,4 +20,5 @@
 - [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
   - [Setup](./node_requisicoes_setup.md)
   - [Autenticação](./node_requisicoes_autenticacao.md)
+  - [Criação de produto](./node_requisicoes_criacao_de_produto.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
