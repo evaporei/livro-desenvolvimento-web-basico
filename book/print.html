@@ -150,6 +150,7 @@
 <li>Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente</li>
 <li>Como construir uma API em Node.js em memória</li>
 <li>Como consumir essa API HTTP via Node.js</li>
+<li>Entender o que é uma SDK</li>
 </ul>
 <a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
 <p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico">Github</a>.</p>
@@ -1693,7 +1694,13 @@ run()
 <p>Bom, como agora já sabe como fazer as requisições e ler os dados da resposta, tudo que precisa fazer para a edição é trocar o método para <code>DELETE</code> e remover o <code>body</code>/corpo (campo <code>data</code>).</p>
 <p>Já que é muito similar, não irei mostrar aqui como é feito.</p>
 <a class="header" href="#o-que-é-uma-sdk" id="o-que-é-uma-sdk"><h1>O que é uma SDK?</h1></a>
-<p>Em breve!</p>
+<p>Agora que já fizemos um servidor, entendemos como ele funciona e como fazer requisições a ele via código, iremos entender o que é uma SDK.</p>
+<p>SDK é um kit de desenvolvimento para algo.</p>
+<p>Existem SDKs que seguem APIs HTTP, e outras que são simplesmente sobre funções/classes/etc de alguma biblioteca.</p>
+<p>No caso de SDKs de APIs HTTP, basicamente elas são <code>&quot;wrappers&quot;</code> (uma camada entorno) sobre as requisições HTTP.</p>
+<p>Exemplo, vamos supor que tenho uma incrível API de mapas, porém é muito complexo enviar os dados a minha API para cada requisição. O que eu posso fazer para facilitar a vida de quem consome minha API, é escrever uma SDK que contém funções que já deixam tudo pronto quanto ao <code>HTTP</code> e só retornam os dados de forma simples.</p>
+<p>Uma SDK é só uma abstração.</p>
+<p>Portanto, ao invés de em <code>Node.js</code> termos de interagir com o <code>axios</code>, poderíamos importar uma biblioteca fictícia chamada <code>products-sdk</code> que teria funções como <code>createProduct</code>. Ou então, tería uma classe <code>Product</code> que ao instanciar iria fazer a requisição a nossa API.</p>
 
                     </main>
 
