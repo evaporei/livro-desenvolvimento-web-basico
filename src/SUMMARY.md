@@ -22,4 +22,7 @@
   - [Autenticação](./node_requisicoes_autenticacao.md)
   - [Criação de produto](./node_requisicoes_criacao_de_produto.md)
   - [Listagem de produtos](./node_requisicoes_listagem_de_produtos.md)
+  - [Buscar somente um produto](./node_requisicoes_somente_um_produto.md)
+  - [Edição de produto](./node_requisicoes_edicao_de_produto.md)
+  - [Deleção de produto](./node_requisicoes_delecao_de_produto.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
