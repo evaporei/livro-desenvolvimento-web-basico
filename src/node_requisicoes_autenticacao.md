@@ -37,3 +37,7 @@ Ao executar, com o nosso servidor do último capítulo rodando é claro, teremos
 Ou seja, nosso `token` foi gerado!
 
 Bom, agora poderemos prosseguir com as demais requisições a nossa API.
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/auth.js">Link para a versão final do código</a>
+</p>
