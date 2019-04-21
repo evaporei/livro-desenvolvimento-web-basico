@@ -21,4 +21,5 @@
   - [Setup](./node_requisicoes_setup.md)
   - [Autenticação](./node_requisicoes_autenticacao.md)
   - [Criação de produto](./node_requisicoes_criacao_de_produto.md)
+  - [Listagem de produtos](./node_requisicoes_listagem_de_produtos.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
