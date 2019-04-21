@@ -67,3 +67,7 @@ Temos nosso servidor, que tal testarmos para ver se funciona via `Postman`?
 </p>
 
 Uhulll!!! Funciona :)
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/usando_body.js">Link para a versão final do código</a>
+</p>

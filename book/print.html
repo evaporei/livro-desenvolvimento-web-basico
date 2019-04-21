@@ -373,6 +373,9 @@ server.listen(PORT, function (err) {
 </p>
 <p>Topper! :D</p>
 <p>Para fechar o servidor simplesmente clique no teclado <code>Ctrl</code> + <code>C</code>, ou feche o <code>terminal</code>/<code>Prompt de comando</code>.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/modulo_http.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#usando-o-pacote-express" id="usando-o-pacote-express"><h1>Usando o pacote express</h1></a>
 <p>Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é <code>express</code>.</p>
 <p>Para instalá-lo rode <code>npm install --save express</code>.</p>
@@ -462,6 +465,9 @@ application.listen(PORT)
 </p>
 <p>Como pôde ver, o <code>header</code>, <code>dado-legal</code> foi lido no servidor!</p>
 <p>Da mesmo forma do anterior, para fechar o servidor simplesmente clique no teclado <code>Ctrl</code> + <code>C</code>, ou feche o <code>terminal</code>/<code>Prompt de comando</code>.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/pacote_express.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#usando-o-corpobody-e-json" id="usando-o-corpobody-e-json"><h1>Usando o corpo/body e JSON</h1></a>
 <p>Agora iremos passar dados pelo corpo (<code>body</code>) da requisição, e retornar dados pelo corpo (<code>body</code>) da resposta.</p>
 <p>O <code>express</code> não faz o <code>parse</code> (análise e preparo) do corpo da requisição, portanto para fazer isso, iremos usar um <code>middleware</code> (uma função que é chamada em cada requisição, antes do nosso código) chamado <code>body-parser</code>.</p>
@@ -511,6 +517,9 @@ app.listen(PORT)
   <img src="https://user-images.githubusercontent.com/15306309/56458556-c2ee8d00-635e-11e9-99fb-b400871a6723.png" alt="postman-returning-same-body"/>
 </p>
 <p>Uhulll!!! Funciona :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/usando_body.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#vamos-criar-uma-simples-api-em-memória" id="vamos-criar-uma-simples-api-em-memória"><h1>Vamos criar uma simples API em memória!</h1></a>
 <p>O que iremos construir?</p>
 <p>Um servidor HTTP de produtos. Teremos 3 rotas iniciais, são elas:</p>
@@ -551,6 +560,9 @@ app.listen(PORT)
 <p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
 <a class="header" href="#notas-1" id="notas-1"><h2>Notas</h2></a>
 <p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/api">api do repositório no Github</a>.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/setup.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#autenticação" id="autenticação"><h1>Autenticação</h1></a>
 <p>Antes de implementar a autenticação, observe abaixo o fluxo da informação:</p>
 <a class="header" href="#fluxo-da-informação" id="fluxo-da-informação"><h2>Fluxo da informação</h2></a>
@@ -687,6 +699,9 @@ app.post('/auth', function (req, res) {
 // ...
 </code></pre>
 <p>Pronto, terminamos! :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/auth.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#criação-de-produto" id="criação-de-produto"><h1>Criação de produto</h1></a>
 <p>Esse capítulo terá como base o código feito no capítulo de autenticação.</p>
 <a class="header" href="#fluxo-da-informação-1" id="fluxo-da-informação-1"><h2>Fluxo da informação</h2></a>
@@ -937,6 +952,9 @@ app.post('/products', authorizationMiddleware, function (req, res) {
 </p>
 <p>No caso para dar certo, vai precisar gerar um <code>token</code> na rota <code>/auth</code> com as credenciais corretas.</p>
 <p>Uhulll ta tudo feito da criação de produtos!!!! :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/criacao_produto.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#listagem-de-produtos" id="listagem-de-produtos"><h1>Listagem de produtos</h1></a>
 <p>Novamente, esse capítulo toma como base o código do capítulo de criação de produto.</p>
 <a class="header" href="#fluxo-da-informação-2" id="fluxo-da-informação-2"><h2>Fluxo da informação</h2></a>
@@ -1085,6 +1103,9 @@ app.get('/products', authorizationMiddleware, function (req, res) {
 // ...
 </code></pre>
 <p>Pronto! Quem consumir a API pode enviar filtros :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/listagem_produtos.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#buscar-somente-um-produto" id="buscar-somente-um-produto"><h1>Buscar somente um produto</h1></a>
 <p>Esse capítulo toma como base o código do capítulo de listagem de produtos.</p>
 <a class="header" href="#fluxo-da-informação-3" id="fluxo-da-informação-3"><h2>Fluxo da informação</h2></a>
@@ -1196,6 +1217,9 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
 <p>Observe que só de colocar o <code>:id</code> no final da URL, o próprio <code>express</code> já coloca uma variável dentro do objeto <code>req.params</code> com o valor enviado.</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464716-fa445480-63c5-11e9-91ec-66e41a994e27.png" alt="sample-request-show-one" />
+</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/buscar_um_produto.js">Link para a versão final do código</a>
 </p>
 <a class="header" href="#edição-de-produto" id="edição-de-produto"><h1>Edição de produto</h1></a>
 <p>Esse capítulo toma como base o código do capítulo de busca de um produto.</p>
@@ -1335,6 +1359,9 @@ app.patch('/products/:id', authorizationMiddleware, function (req, res) {
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464574-198db280-63c3-11e9-9dbc-98a1e21c7a37.png" alt="sample-request-edit" />
 </p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/edicao_produto.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#deleção-de-produto" id="deleção-de-produto"><h1>Deleção de produto</h1></a>
 <p>Esse capítulo toma como base o código do capítulo de edição de produto.</p>
 <a class="header" href="#fluxo-da-informação-5" id="fluxo-da-informação-5"><h2>Fluxo da informação</h2></a>
@@ -1459,6 +1486,9 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
   <img src="https://user-images.githubusercontent.com/15306309/56464870-b141cf80-63c8-11e9-9f94-feb1ce355d9c.png" alt="sample-request-delete" />
 </p>
 <p>Parabéns!!!! Você fez seu primeiro CRUD (Create, Read, Update, Delete) com Node.js!!!!!!</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/delecao_produto.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#vamos-fazer-requisições-via-nodejs" id="vamos-fazer-requisições-via-nodejs"><h1>Vamos fazer requisições via Node.js!</h1></a>
 <p>Iremos usar da API que construímos no capítulo anterior e iremos fazer várias requisições a ela, mas ao invés de usar o <code>Postman</code>, vamos usar <code>Node.js</code>.</p>
 <p>Logo, o conteúdo desse capítulo depende do anterior.</p>
@@ -1487,6 +1517,9 @@ run()
 <p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
 <a class="header" href="#notas-2" id="notas-2"><h2>Notas</h2></a>
 <p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/request">api do repositório no Github</a>.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/setup.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#autenticação-2" id="autenticação-2"><h1>Autenticação</h1></a>
 <p>Primeiro de tudo para conseguirmos interagir com nossa API de produtos, precisamos de um token, ou seja, de autenticação/autorização.</p>
 <p>Segue abaixo o script de como usar o <code>axios</code> para fazer uma requisição <code>HTTP</code>.</p>
@@ -1517,6 +1550,9 @@ run()
 </p>
 <p>Ou seja, nosso <code>token</code> foi gerado!</p>
 <p>Bom, agora poderemos prosseguir com as demais requisições a nossa API.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/auth.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#criação-de-produto-1" id="criação-de-produto-1"><h1>Criação de produto</h1></a>
 <p>Agora que já temos o <code>token</code> podemos criar um produto.</p>
 <pre><code class="language-javascript">const axios = require('axios')
@@ -1647,6 +1683,9 @@ async function run () {
   <img src="https://user-images.githubusercontent.com/15306309/56465449-c5d79500-63d3-11e9-8ecf-c43b1ebef17a.png" alt="terminal-output-4" />
 </p>
 <p>Voilá! Agora podemos executar indeterminadas (até ter colisão, ou chegarmos a 1000 produtos, um para cada número) vezes que irá funcionar! E sim, poderíamos usar algo como a biblioteca <code>cuid</code> aqui, a qual usamos na nossa API.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/criacao_produto.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#listagem-de-produtos-1" id="listagem-de-produtos-1"><h1>Listagem de produtos</h1></a>
 <p>Para listar a única coisa que precisamos fazer é modificar o <code>method</code> de <code>POST</code> para <code>GET</code>, e remover o <code>body</code>/corpo (campo <code>data</code>).</p>
 <pre><code class="language-javascript">const axios = require('axios')
@@ -1684,6 +1723,9 @@ run()
   <img src="https://user-images.githubusercontent.com/15306309/56465534-7003ec80-63d5-11e9-9969-1e5b05e98ac2.png" alt="terminal-output-1" />
 </p>
 <p>Simples assim! :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/listagem_produtos.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#buscar-somente-um-produto-1" id="buscar-somente-um-produto-1"><h1>Buscar somente um produto</h1></a>
 <p>Bom, como agora já sabe como fazer as requisições e ler os dados da resposta, tudo que precisa fazer para a edição é trocar o método para <code>GET</code>, remover o <code>body</code>/corpo (campo <code>data</code>), e passar o <code>id</code> na <code>url</code>.</p>
 <p>Já que é muito similar, não irei mostrar aqui como é feito.</p>

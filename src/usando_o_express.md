@@ -122,3 +122,7 @@ Ao fazer a requisição, no terminal ficará da seguinte forma:
 Como pôde ver, o `header`, `dado-legal` foi lido no servidor!
 
 Da mesmo forma do anterior, para fechar o servidor simplesmente clique no teclado `Ctrl` + `C`, ou feche o `terminal`/`Prompt de comando`.
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/pacote_express.js">Link para a versão final do código</a>
+</p>

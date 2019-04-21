@@ -170,3 +170,7 @@ app.post('/auth', function (req, res) {
 ```
 
 Pronto, terminamos! :)
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/auth.js">Link para a versão final do código</a>
+</p>

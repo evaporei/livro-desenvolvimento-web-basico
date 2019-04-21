@@ -145,3 +145,7 @@ Logs no terminal após uma requisição com o método `GET`, e outra com o `POST
 Topper! :D
 
 Para fechar o servidor simplesmente clique no teclado `Ctrl` + `C`, ou feche o `terminal`/`Prompt de comando`.
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/modulo_http.js">Link para a versão final do código</a>
+</p>

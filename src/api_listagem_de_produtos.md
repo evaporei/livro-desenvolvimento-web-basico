@@ -168,3 +168,7 @@ app.get('/products', authorizationMiddleware, function (req, res) {
 ```
 
 Pronto! Quem consumir a API pode enviar filtros :)
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/listagem_produtos.js">Link para a versão final do código</a>
+</p>

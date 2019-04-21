@@ -40,3 +40,7 @@ run()
 </p>
 
 Simples assim! :)
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/listagem_produtos.js">Link para a versão final do código</a>
+</p>

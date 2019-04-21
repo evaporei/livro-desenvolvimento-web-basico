@@ -137,3 +137,7 @@ Assim como no último capítulo, o `:id` acaba por virar uma variável graças a
 </p>
 
 Parabéns!!!! Você fez seu primeiro CRUD (Create, Read, Update, Delete) com Node.js!!!!!!
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/delecao_produto.js">Link para a versão final do código</a>
+</p>

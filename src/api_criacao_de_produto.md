@@ -295,3 +295,7 @@ E a requisição de sucesso fica assim:
 No caso para dar certo, vai precisar gerar um `token` na rota `/auth` com as credenciais corretas.
 
 Uhulll ta tudo feito da criação de produtos!!!! :)
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/criacao_produto.js">Link para a versão final do código</a>
+</p>
