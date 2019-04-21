@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produtos.html"><strong aria-hidden="true">7.3.</strong> Criação de produtos</a></li><li><a href="api_listagem_de_produtos.html"><strong aria-hidden="true">7.4.</strong> Listagem de produtos</a></li><li><a href="api_buscar_somente_um_produto.html"><strong aria-hidden="true">7.5.</strong> Buscar somente um produto</a></li><li><a href="api_edicao_de_produtos.html"><strong aria-hidden="true">7.6.</strong> Edição de produtos</a></li><li><a href="api_delecao_de_produtos.html"><strong aria-hidden="true">7.7.</strong> Deleção de produtos</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produto.html"><strong aria-hidden="true">7.3.</strong> Criação de produto</a></li><li><a href="api_listagem_de_produtos.html"><strong aria-hidden="true">7.4.</strong> Listagem de produtos</a></li><li><a href="api_buscar_somente_um_produto.html"><strong aria-hidden="true">7.5.</strong> Buscar somente um produto</a></li><li><a href="api_edicao_de_produto.html"><strong aria-hidden="true">7.6.</strong> Edição de produto</a></li><li><a href="api_delecao_de_produto.html"><strong aria-hidden="true">7.7.</strong> Deleção de produto</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -516,6 +516,9 @@ app.listen(PORT)
 <li>Autenticação (<code>POST /auth</code>)</li>
 <li>Criação de produto (<code>POST /products</code>)</li>
 <li>Listagem de produtos (<code>GET /products</code>)</li>
+<li>Busca de um produto por id (<code>GET /products/:id</code>)</li>
+<li>Edição de um produto (<code>PATCH /products/:id</code>)</li>
+<li>Deleção de um produto (<code>DELETE /products/:id</code>)</li>
 </ul>
 <p>Como assim em memória?</p>
 <p>Quando o servidor for desligado, todos os dados serão perdidos.</p>
@@ -682,7 +685,7 @@ app.post('/auth', function (req, res) {
 // ...
 </code></pre>
 <p>Pronto, terminamos! :)</p>
-<a class="header" href="#criação-de-produtos" id="criação-de-produtos"><h1>Criação de produtos</h1></a>
+<a class="header" href="#criação-de-produto" id="criação-de-produto"><h1>Criação de produto</h1></a>
 <p>Esse capítulo terá como base o código feito no capítulo de autenticação.</p>
 <a class="header" href="#fluxo-da-informação-1" id="fluxo-da-informação-1"><h2>Fluxo da informação</h2></a>
 <p align="center">
@@ -933,7 +936,7 @@ app.post('/products', authorizationMiddleware, function (req, res) {
 <p>No caso para dar certo, vai precisar gerar um <code>token</code> na rota <code>/auth</code> com as credenciais corretas.</p>
 <p>Uhulll ta tudo feito da criação de produtos!!!! :)</p>
 <a class="header" href="#listagem-de-produtos" id="listagem-de-produtos"><h1>Listagem de produtos</h1></a>
-<p>Novamente, esse capítulo toma como base o código do capítulo de criação de produtos.</p>
+<p>Novamente, esse capítulo toma como base o código do capítulo de criação de produto.</p>
 <a class="header" href="#fluxo-da-informação-2" id="fluxo-da-informação-2"><h2>Fluxo da informação</h2></a>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56462917-8c863180-63a1-11e9-8c42-cf6e008c2a0d.png" alt="sequence-diagram-information-flow" width="500" />
@@ -1192,7 +1195,7 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464716-fa445480-63c5-11e9-91ec-66e41a994e27.png" alt="sample-request-show-one" />
 </p>
-<a class="header" href="#edição-de-produtos" id="edição-de-produtos"><h1>Edição de produtos</h1></a>
+<a class="header" href="#edição-de-produto" id="edição-de-produto"><h1>Edição de produto</h1></a>
 <p>Esse capítulo toma como base o código do capítulo de busca de um produto.</p>
 <a class="header" href="#fluxo-da-informação-4" id="fluxo-da-informação-4"><h2>Fluxo da informação</h2></a>
 <p align="center">
@@ -1330,8 +1333,8 @@ app.patch('/products/:id', authorizationMiddleware, function (req, res) {
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464574-198db280-63c3-11e9-9dbc-98a1e21c7a37.png" alt="sample-request-edit" />
 </p>
-<a class="header" href="#deleção-de-produtos" id="deleção-de-produtos"><h1>Deleção de produtos</h1></a>
-<p>Esse capítulo toma como base o código do capítulo de edição de produtos.</p>
+<a class="header" href="#deleção-de-produto" id="deleção-de-produto"><h1>Deleção de produto</h1></a>
+<p>Esse capítulo toma como base o código do capítulo de edição de produto.</p>
 <a class="header" href="#fluxo-da-informação-5" id="fluxo-da-informação-5"><h2>Fluxo da informação</h2></a>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464883-e3533180-63c8-11e9-8f3c-8372c1e9a32c.png" alt="sequence-diagram-information-flow" width="500" />

@@ -1,4 +1,4 @@
-# Criação de produtos
+# Criação de produto
 
 Esse capítulo terá como base o código feito no capítulo de autenticação.
 

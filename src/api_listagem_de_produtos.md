@@ -1,6 +1,6 @@
 # Listagem de produtos
 
-Novamente, esse capítulo toma como base o código do capítulo de criação de produtos.
+Novamente, esse capítulo toma como base o código do capítulo de criação de produto.
 
 ## Fluxo da informação
 
