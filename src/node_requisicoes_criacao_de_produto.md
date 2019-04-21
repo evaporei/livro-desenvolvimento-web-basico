@@ -147,3 +147,7 @@ async function run () {
 </p>
 
 Voilá! Agora podemos executar indeterminadas (até ter colisão, ou chegarmos a 1000 produtos, um para cada número) vezes que irá funcionar! E sim, poderíamos usar algo como a biblioteca `cuid` aqui, a qual usamos na nossa API.
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/criacao_produto.js">Link para a versão final do código</a>
+</p>

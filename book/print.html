@@ -1683,6 +1683,9 @@ async function run () {
   <img src="https://user-images.githubusercontent.com/15306309/56465449-c5d79500-63d3-11e9-8ecf-c43b1ebef17a.png" alt="terminal-output-4" />
 </p>
 <p>Voilá! Agora podemos executar indeterminadas (até ter colisão, ou chegarmos a 1000 produtos, um para cada número) vezes que irá funcionar! E sim, poderíamos usar algo como a biblioteca <code>cuid</code> aqui, a qual usamos na nossa API.</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/criacao_produto.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#listagem-de-produtos-1" id="listagem-de-produtos-1"><h1>Listagem de produtos</h1></a>
 <p>Para listar a única coisa que precisamos fazer é modificar o <code>method</code> de <code>POST</code> para <code>GET</code>, e remover o <code>body</code>/corpo (campo <code>data</code>).</p>
 <pre><code class="language-javascript">const axios = require('axios')
@@ -1720,6 +1723,9 @@ run()
   <img src="https://user-images.githubusercontent.com/15306309/56465534-7003ec80-63d5-11e9-9969-1e5b05e98ac2.png" alt="terminal-output-1" />
 </p>
 <p>Simples assim! :)</p>
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/listagem_produtos.js">Link para a versão final do código</a>
+</p>
 <a class="header" href="#buscar-somente-um-produto-1" id="buscar-somente-um-produto-1"><h1>Buscar somente um produto</h1></a>
 <p>Bom, como agora já sabe como fazer as requisições e ler os dados da resposta, tudo que precisa fazer para a edição é trocar o método para <code>GET</code>, remover o <code>body</code>/corpo (campo <code>data</code>), e passar o <code>id</code> na <code>url</code>.</p>
 <p>Já que é muito similar, não irei mostrar aqui como é feito.</p>
