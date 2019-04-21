@@ -126,3 +126,7 @@ Observe que só de colocar o `:id` no final da URL, o próprio `express` já col
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464716-fa445480-63c5-11e9-91ec-66e41a994e27.png" alt="sample-request-show-one" />
 </p>
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/buscar_um_produto.js">Link para a versão final do código</a>
+</p>
