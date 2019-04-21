@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html" class="active"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">7.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">8.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html" class="active"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produto.html"><strong aria-hidden="true">7.3.</strong> Criação de produto</a></li><li><a href="api_listagem_de_produtos.html"><strong aria-hidden="true">7.4.</strong> Listagem de produtos</a></li><li><a href="api_buscar_somente_um_produto.html"><strong aria-hidden="true">7.5.</strong> Buscar somente um produto</a></li><li><a href="api_edicao_de_produto.html"><strong aria-hidden="true">7.6.</strong> Edição de produto</a></li><li><a href="api_delecao_de_produto.html"><strong aria-hidden="true">7.7.</strong> Deleção de produto</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><ol class="section"><li><a href="node_requisicoes_setup.html"><strong aria-hidden="true">8.1.</strong> Setup</a></li><li><a href="node_requisicoes_autenticacao.html"><strong aria-hidden="true">8.2.</strong> Autenticação</a></li><li><a href="node_requisicoes_criacao_de_produto.html"><strong aria-hidden="true">8.3.</strong> Criação de produto</a></li><li><a href="node_requisicoes_listagem_de_produtos.html"><strong aria-hidden="true">8.4.</strong> Listagem de produtos</a></li><li><a href="node_requisicoes_somente_um_produto.html"><strong aria-hidden="true">8.5.</strong> Buscar somente um produto</a></li><li><a href="node_requisicoes_edicao_de_produto.html"><strong aria-hidden="true">8.6.</strong> Edição de produto</a></li><li><a href="node_requisicoes_delecao_de_produto.html"><strong aria-hidden="true">8.7.</strong> Deleção de produto</a></li></ol></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -141,7 +141,54 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#usando-o-corpobody-e-json" id="usando-o-corpobody-e-json"><h1>Usando o corpo/body e JSON</h1></a>
-<p>Em breve!</p>
+<p>Agora iremos passar dados pelo corpo (<code>body</code>) da requisição, e retornar dados pelo corpo (<code>body</code>) da resposta.</p>
+<p>O <code>express</code> não faz o <code>parse</code> (análise e preparo) do corpo da requisição, portanto para fazer isso, iremos usar um <code>middleware</code> (uma função que é chamada em cada requisição, antes do nosso código) chamado <code>body-parser</code>.</p>
+<p>Para instalá-lo, execute:</p>
+<pre><code class="language-shell">npm install --save body-parser
+</code></pre>
+<p>Vamos criar um novo arquivo <code>JavaScript</code> para isso!</p>
+<pre><code class="language-shell"># cria o arquivo principal
+touch usando_body.js
+</code></pre>
+<p>Nosso arquivo vai começar com o seguinte:</p>
+<pre><code class="language-javascript">const express = require('express')
+const PORT = 8000
+
+const app = express()
+
+app.listen(PORT)
+</code></pre>
+<p>Agora vamos adicionar o <code>body-parser</code> para poder ler o corpo da requisição no nosso servidor.</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.listen(PORT)
+</code></pre>
+<p>Pronto! Agora iremos adicionar uma rota que irá receber um conteúdo no formato <code>JSON</code> e irá retornar o mesmo no corpo da resposta.</p>
+<pre><code class="language-javascript">const express = require('express')
+const bodyParser = require('body-parser')
+const PORT = 8000
+
+const app = express()
+
+app.use(bodyParser.json())
+
+app.post('/', function (req, res) {
+  res.send(req.body)
+})
+
+app.listen(PORT)
+</code></pre>
+<p>Temos nosso servidor, que tal testarmos para ver se funciona via <code>Postman</code>?</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56458556-c2ee8d00-635e-11e9-99fb-b400871a6723.png" alt="postman-returning-same-body"/>
+</p>
+<p>Uhulll!!! Funciona :)</p>
 
                     </main>
 
@@ -154,7 +201,7 @@
                         
 
                         
-                            <a rel="next" href="vamos_fazer_requisicoes_via_node.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="vamos_criar_uma_simples_api_em_memoria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -172,7 +219,7 @@
                 
 
                 
-                    <a href="vamos_fazer_requisicoes_via_node.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="vamos_criar_uma_simples_api_em_memoria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -180,21 +227,6 @@
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
