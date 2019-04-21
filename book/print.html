@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produtos.html"><strong aria-hidden="true">7.3.</strong> Criação de produtos</a></li><li><a href="api_listagem_de_produtos.html"><strong aria-hidden="true">7.4.</strong> Listagem de produtos</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
+            <ol class="chapter"><li><a href="qual_a_ideia_do_livro.html"><strong aria-hidden="true">1.</strong> Qual a ideia do livro?</a></li><li><a href="o_que_e_um_servidor_web_http.html"><strong aria-hidden="true">2.</strong> O que é um servidor Web HTTP?</a></li><li><a href="como_e_a_dinamica_da_comunicacao_http.html"><strong aria-hidden="true">3.</strong> Como é a dinâmica da comunicação HTTP?</a></li><li><a href="o_que_costuma_girar_entorno_de_servidores_http.html"><strong aria-hidden="true">4.</strong> O que costuma girar entorno de servidores HTTP?</a></li><li><a href="quais_sao_os_dados_trafegados_no_protocolo_http.html"><strong aria-hidden="true">5.</strong> Quais são os dados trafegados no protocólo HTTP?</a></li><li><a href="vamos_colocar_a_mao_na_massa_e_criar_um_servidor.html"><strong aria-hidden="true">6.</strong> Vamos colocar a mão na massa e criar um servidor!</a></li><li><ol class="section"><li><a href="criando_um_servidor_com_o_modulo_http_do_node.html"><strong aria-hidden="true">6.1.</strong> Criando um servidor com o módulo HTTP do Node.js</a></li><li><a href="usando_o_express.html"><strong aria-hidden="true">6.2.</strong> Usando o pacote express</a></li><li><a href="usando_corpo_body_e_json.html"><strong aria-hidden="true">6.3.</strong> Usando o corpo/body e JSON</a></li></ol></li><li><a href="vamos_criar_uma_simples_api_em_memoria.html"><strong aria-hidden="true">7.</strong> Vamos criar uma simples API em memória!</a></li><li><ol class="section"><li><a href="api_setup.html"><strong aria-hidden="true">7.1.</strong> Setup</a></li><li><a href="api_autenticacao.html"><strong aria-hidden="true">7.2.</strong> Autenticação</a></li><li><a href="api_criacao_de_produtos.html"><strong aria-hidden="true">7.3.</strong> Criação de produtos</a></li><li><a href="api_listagem_de_produtos.html"><strong aria-hidden="true">7.4.</strong> Listagem de produtos</a></li><li><a href="api_edicao_de_produtos.html"><strong aria-hidden="true">7.5.</strong> Edição de produtos</a></li></ol></li><li><a href="vamos_fazer_requisicoes_via_node.html"><strong aria-hidden="true">8.</strong> Vamos fazer requisições via Node.js!</a></li><li><a href="o_que_e_uma_sdk.html"><strong aria-hidden="true">9.</strong> O que é uma SDK?</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -1068,7 +1068,7 @@ app.get('/products', authorizationMiddleware, function (req, res) {
         validations.push(product.price == req.query.price)
       }
 
-      return validations.length == 0 || validations.some(function (validation) {
+      return validations.some(function (validation) {
         return validation == true
       })
     })
@@ -1080,6 +1080,140 @@ app.get('/products', authorizationMiddleware, function (req, res) {
 // ...
 </code></pre>
 <p>Pronto! Quem consumir a API pode enviar filtros :)</p>
+<a class="header" href="#edição-de-produtos" id="edição-de-produtos"><h1>Edição de produtos</h1></a>
+<p>Esse capítulo toma como base o código do capítulo de listagem de produtos.</p>
+<a class="header" href="#fluxo-da-informação-3" id="fluxo-da-informação-3"><h2>Fluxo da informação</h2></a>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56464573-198db280-63c3-11e9-82aa-5e80e779f4eb.png" alt="sequence-diagram-information-flow" width="500" />
+</p>
+<a class="header" href="#caso-de-sucesso-4" id="caso-de-sucesso-4"><h3>Caso de sucesso</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products/cjuq20sms0001j35j9mbf246v</code></p>
+<p><code>método</code>: <code>PATCH</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer j19fn19fhq9f0jr0adsyf08aefhf0</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;bolinha de ping pong&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>200</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;cjuq20sms0001j35j9mbf246v&quot;,
+  &quot;name&quot;: &quot;bolinha de ping pong&quot;,
+  &quot;price&quot;: 5.34
+}
+</code></pre>
+<a class="header" href="#caso-de-erro-produto-não-encontrado" id="caso-de-erro-produto-não-encontrado"><h3>Caso de erro, produto não encontrado</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products/id_nao_existente</code></p>
+<p><code>método</code>: <code>PATCH</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer j19fn19fhq9f0jr0adsyf08aefhf0</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;bolinha de ping pong&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>404</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;No product exists with this id&quot;
+}
+</code></pre>
+<a class="header" href="#caso-de-erro-de-autenticação-2" id="caso-de-erro-de-autenticação-2"><h3>Caso de erro de autenticação</h3></a>
+<blockquote>
+<p>Requisição</p>
+</blockquote>
+<p><code>URL</code>: <code>/products/cjuq20sms0001j35j9mbf246v</code></p>
+<p><code>método</code>: <code>PATCH</code></p>
+<p><code>headers</code>:</p>
+<ul>
+<li><code>Authorization</code>: <code>Bearer TOKEN_INEXISTENTE</code></li>
+</ul>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;bolinha de ping pong&quot;
+}
+</code></pre>
+<blockquote>
+<p>Resposta</p>
+</blockquote>
+<p><code>status code</code>: <code>401</code></p>
+<p><code>body</code>:</p>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;Unauthorized&quot;
+}
+</code></pre>
+<a class="header" href="#implementação-3" id="implementação-3"><h2>Implementação</h2></a>
+<pre><code class="language-javascript">// imports...
+
+// setup...
+
+const tokens = []
+
+app.post('/auth', function (req, res) {
+// ...
+})
+
+const products = []
+
+function authorizationMiddleware (req, res, next) {
+// ...
+}
+
+app.post('/products', authorizationMiddleware, function (req, res) {
+// ...
+})
+
+app.get('/products', authorizationMiddleware, function (req, res) {
+// ...
+})
+
+app.patch('/products/:id', authorizationMiddleware, function (req, res) {
+  const productFound = products.find(function (product) {
+    return req.params.id == product.id
+  })
+
+  if (!productFound) {
+    res.status(404).send({
+      message: 'No product exists with this id'
+    })
+    return
+  }
+
+  if (req.body.name != null) {
+    productFound.name = req.body.name
+  }
+
+  if (req.body.price != null) {
+    productFound.price = req.body.price
+  }
+
+  res.status(200).send(productFound)
+})
+
+// app.listen...
+</code></pre>
+<p>Observe que só de colocar o <code>:id</code> no final da URL, o próprio <code>express</code> já coloca uma variável dentro do objeto <code>req.params</code> com o valor enviado.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/56464574-198db280-63c3-11e9-9dbc-98a1e21c7a37.png" alt="sample-request-edit" />
+</p>
 <a class="header" href="#vamos-fazer-requisições-via-nodejs" id="vamos-fazer-requisições-via-nodejs"><h1>Vamos fazer requisições via Node.js!</h1></a>
 <p>Em breve!</p>
 <a class="header" href="#o-que-é-uma-sdk" id="o-que-é-uma-sdk"><h1>O que é uma SDK?</h1></a>
