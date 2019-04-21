@@ -16,5 +16,6 @@
   - [Listagem de produtos](./api_listagem_de_produtos.md)
   - [Buscar somente um produto](./api_buscar_somente_um_produto.md)
   - [Edição de produtos](./api_edicao_de_produtos.md)
+  - [Deleção de produtos](./api_delecao_de_produtos.md)
 - [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
