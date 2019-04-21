@@ -39,3 +39,7 @@ Isso facilita ter de ficar parando o servidor no terminal com `Ctrl + C` e o ini
 ## Notas
 
 Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta [api do repositório no Github](https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/request).
+
+<p align="center">
+  <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/setup.js">Link para a versão final do código</a>
+</p>
