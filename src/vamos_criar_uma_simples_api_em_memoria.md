@@ -20,3 +20,9 @@ Mas por que fazer assim?
 Simplesmente por simplicidade. Lembre-se que tudo que salvarmos na memória, poderia simplesmente estar em um banco de dados.
 
 Bora!
+
+## Nota importante
+
+Eu não explico no livro o que é `JSON`, recomendo pesquisar sobre, aqui está um artigo que talvez possa ajudar: [artigo Medium JSON](https://medium.com/clebertech/o-que-%C3%A9-json-daaa9311e929).
+
+Em poucas palavras é um formato de dados semelhante ao `XML`, que está ganhando mais popularidade.
