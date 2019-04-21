@@ -18,4 +18,5 @@
   - [Edição de produto](./api_edicao_de_produto.md)
   - [Deleção de produto](./api_delecao_de_produto.md)
 - [Vamos fazer requisições via Node.js!](./vamos_fazer_requisicoes_via_node.md)
+  - [Setup](./node_requisicoes_setup.md)
 - [O que é uma SDK?](./o_que_e_uma_sdk.md)
