@@ -6,7 +6,7 @@ Execute `npm init` e pode pressionar `Enter` até as opções do `npm` acabarem.
 
 ## Dependências
 
-Iremos precisar somente do `axios`, ela é uma biblioteca que facilita a fazer requisições HTTP. Para instalá-lo:
+Iremos precisar somente do `axios`, ela é uma biblioteca/pacote que facilita a fazer requisições HTTP. Para instalá-lo:
 
 ```shell
 npm install --save axios
