@@ -119,6 +119,8 @@ Só para ficar mais claro o que acabou de acontecer, aqui está um desenho:
 
 Uma última coisa que da para fazer de legal, é adicionar `logs`, na sua aplicação/servidor, para que mostre qual a `rota` que o cliente está pedindo, qual o `método`, etc.
 
+> Obs: `logs` nada mais são do que textos na tela do terminal para entender o fluxo da aplicação, ou seja, `console.log`s no caso do JavaScript
+
 Segue o código abaixo com alguns `logs` simples.
 
 ```javascript

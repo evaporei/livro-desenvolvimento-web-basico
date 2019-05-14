@@ -360,6 +360,9 @@ server.listen(PORT, function (err) {
   <img src="https://user-images.githubusercontent.com/15306309/57666785-98979480-75d7-11e9-8096-141c35c9daaa.png" alt="diagram-request-postman-response-node"/>
 </p>
 <p>Uma última coisa que da para fazer de legal, é adicionar <code>logs</code>, na sua aplicação/servidor, para que mostre qual a <code>rota</code> que o cliente está pedindo, qual o <code>método</code>, etc.</p>
+<blockquote>
+<p>Obs: <code>logs</code> nada mais são do que textos na tela do terminal para entender o fluxo da aplicação, ou seja, <code>console.log</code>s no caso do JavaScript</p>
+</blockquote>
 <p>Segue o código abaixo com alguns <code>logs</code> simples.</p>
 <pre><code class="language-javascript">const http = require('http')
 const PORT = 8000
