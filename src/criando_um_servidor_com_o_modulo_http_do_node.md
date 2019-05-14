@@ -7,6 +7,8 @@ Crie um arquivo `JavaScript` que será o ponto de entrada da nossa aplicação/s
 touch modulo_http.js
 ```
 
+> Obs: `#` significa um comentário no terminal, ou seja, que a linha não será executada :)
+
 Abra seu editor favorito e vamos codificar o tal servidor!
 
 Primeiro vamos importar o módulo `http` da biblioteca padrão do `Node.js`.
