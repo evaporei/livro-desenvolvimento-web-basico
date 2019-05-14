@@ -13,7 +13,7 @@ Exemplo: `www.google.com/images?size=500&free_use=false`.
 - `2xx`: deu tudo certo
 - `3xx`: redirecionamento
 - `4xx`: respostas de erro (algum campo faltando por exemplo)
-- `5xx`: servidor deu problema (pode estar fora do ar, ou explodiu no meio da requisição)
+- `5xx`: servidor deu problema (pode estar fora do ar, ou "explodiu" no meio da requisição)
 
 ## Body
 
