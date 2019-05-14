@@ -8,7 +8,7 @@ O servidor fica escutando por conexões em uma porta no computador. Todo computa
 
 É comum também utilizar de `load balancers` para ficarem na frente dos servidores.
 
-Um `load balancer`, nada mais é que um servidor como qualquer outro, cuja função é receber requisições e direcioná-las a outros servidores, dividingo a carga de uma forma específica (igualmente por exemplo).
+Um `load balancer`, nada mais é que um servidor como qualquer outro, cuja função é receber requisições e direcioná-las a outros servidores, dividindo a carga de uma forma específica (igualmente por exemplo).
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56098687-2c8f1700-5ed9-11e9-82f6-9fd595e70289.png" alt="drawing2"/>
