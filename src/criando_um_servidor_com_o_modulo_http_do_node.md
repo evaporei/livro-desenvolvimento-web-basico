@@ -78,7 +78,7 @@ Caso nosso servidor esteja de pé, irá aparecer a seguinte frase no terminal: `
 
 Se der errado por algum motivo, aparecerá: `Algo de ruim aconteceu, erro: `, com o erro em sequência.
 
-Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta `8000`. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.
+Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou porque já existe algum outro programa que usa a porta `8000`. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.
 
 ### Ta, e agora?
 
