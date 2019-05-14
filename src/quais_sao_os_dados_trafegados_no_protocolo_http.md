@@ -9,7 +9,7 @@ Exemplo: `www.google.com/images?size=500&free_use=false`.
 
 ## Status code
 
-É um número que representa o que aconteceu com a requisição HTTP, veja lista [aqui](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status). Os mais comuns são:
+É um número de três dígitos que representa o que aconteceu com a requisição HTTP, veja lista [aqui](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status). Os mais comuns são:
 - `2xx`: deu tudo certo
 - `3xx`: redirecionamento
 - `4xx`: respostas de erro (algum campo faltando por exemplo)
