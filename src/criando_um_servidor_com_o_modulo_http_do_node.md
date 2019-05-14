@@ -111,6 +111,12 @@ Pressione o botão `Send`, e deverá ver a resposta do nosso servidor Node.js!
 
 Parabéns!!!! Você conseguiu criar seu primeiro servidor e enviar requisições a ele!!!!!! :)
 
+Só para ficar mais claro o que acabou de acontecer, aqui está um desenho:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/57666785-98979480-75d7-11e9-8096-141c35c9daaa.png" alt="diagram-request-postman-response-node"/>
+</p>
+
 Uma última coisa que da para fazer de legal, é adicionar `logs`, na sua aplicação/servidor, para que mostre qual a `rota` que o cliente está pedindo, qual o `método`, etc.
 
 Segue o código abaixo com alguns `logs` simples.
