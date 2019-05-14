@@ -58,6 +58,12 @@ server.listen(PORT, function (err) {
 })
 ```
 
+A `function (err) { ... }` que estamos passando como segundo parâmetro a função `server.listen`, é chamada assim que a tentativa de subir o servidor finalizou. Ela pode ter dado certo ou errado, para isso serve o `if` aqui.
+
+> Obs: `console.log` é a função que coloca texto no terminal, um `print`
+
+O `return` dentro do `if` serve para que terminemos a execução da função alí mesmo. Não queremos que apareça no terminal `Servidor escutando na porta:` quando na verdade o servidor não está realmente fazendo isso, pois ocorreu um erro.
+
 Aqui está! Temos o servidor, a porta e a função que cuida de cada requisição! Uhullll!!!!
 
 Bora colocar esse servidor para funcionar?!

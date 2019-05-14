@@ -319,6 +319,11 @@ server.listen(PORT, function (err) {
   console.log(`Servidor escutando na porta: ${PORT}`)
 })
 </code></pre>
+<p>A <code>function (err) { ... }</code> que estamos passando como segundo parâmetro a função <code>server.listen</code>, é chamada assim que a tentativa de subir o servidor finalizou. Ela pode ter dado certo ou errado, para isso serve o <code>if</code> aqui.</p>
+<blockquote>
+<p>Obs: <code>console.log</code> é a função que coloca texto no terminal, um <code>print</code></p>
+</blockquote>
+<p>O <code>return</code> dentro do <code>if</code> serve para que terminemos a execução da função alí mesmo. Não queremos que apareça no terminal <code>Servidor escutando na porta:</code> quando na verdade o servidor não está realmente fazendo isso, pois ocorreu um erro.</p>
 <p>Aqui está! Temos o servidor, a porta e a função que cuida de cada requisição! Uhullll!!!!</p>
 <p>Bora colocar esse servidor para funcionar?!</p>
 <p>Execute em seu terminal:</p>
