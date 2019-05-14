@@ -74,7 +74,7 @@ Execute em seu terminal:
 node modulo_http.js
 ```
 
-Caso nosso servidor esteja de pé irá aparecer a seguinte frase no terminal: `Servidor escutando na porta: 8000`.
+Caso nosso servidor esteja de pé, irá aparecer a seguinte frase no terminal: `Servidor escutando na porta: 8000`.
 
 Se der errado por algum motivo, aparecerá: `Algo de ruim aconteceu, erro: `, com o erro em sequência.
 
