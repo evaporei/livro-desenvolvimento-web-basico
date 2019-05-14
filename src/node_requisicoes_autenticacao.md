@@ -1,6 +1,6 @@
 # Autenticação
 
-Primeiro de tudo para conseguirmos interagir com nossa API de produtos, precisamos de um token, ou seja, de autenticação/autorização.
+Primeiro de tudo, para conseguirmos interagir com nossa API de produtos, precisamos de um token, ou seja, de autenticação/autorização.
 
 Segue abaixo o script de como usar o `axios` para fazer uma requisição `HTTP`.
 

@@ -114,10 +114,9 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   const itemToBeDeletedIndex = products.indexOf(productFound)
@@ -130,7 +129,7 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
 // app.listen...
 ```
 
-Assim como no último capítulo, o `:id` acaba por virar uma variável graças ao `express`.
+Assim como nos últimos dois capítulos, o `:id` acaba por virar uma variável graças ao `express`.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464870-b141cf80-63c8-11e9-9f94-feb1ce355d9c.png" alt="sample-request-delete" />

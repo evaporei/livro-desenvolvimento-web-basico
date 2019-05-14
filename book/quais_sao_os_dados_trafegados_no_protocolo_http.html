@@ -149,12 +149,12 @@
 <li>Dados <code>query string</code> (depois da interrogação): <code>size</code> valendo <code>500</code> e <code>free_use</code> valendo <code>false</code>.</li>
 </ul>
 <a class="header" href="#status-code" id="status-code"><h2>Status code</h2></a>
-<p>É um número que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
+<p>É um número de três dígitos que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
 <ul>
 <li><code>2xx</code>: deu tudo certo</li>
 <li><code>3xx</code>: redirecionamento</li>
 <li><code>4xx</code>: respostas de erro (algum campo faltando por exemplo)</li>
-<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou explodiu no meio da requisição)</li>
+<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou &quot;explodiu&quot; no meio da requisição)</li>
 </ul>
 <a class="header" href="#body" id="body"><h2>Body</h2></a>
 <p>O corpo da requisição. É basicamente o dado principal da requisição e resposta HTTP. Ele pode possuir diferentes formatos. Vamos supor que quero fazer login em uma página, o servidor precisa saber qual o meu <code>e-mail</code> e qual a minha <code>senha</code>. Geralmente esse tipo de dado é enviado pelo corpo, e na resposta nesse caso iremos receber um <code>status code</code> informando se os dados estão corretos (<code>200</code>, deu certo, e <code>400</code> deu errado). Exemplo utilizando o formato <code>JSON</code>:</p>

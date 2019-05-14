@@ -1,6 +1,8 @@
 # Usando o pacote express
 
-Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é `express`.
+Bom, dessa vez iremos usar uma biblioteca/pacote que facilita a criação de servidores HTTP, o nome dele é `express`.
+
+> Obs: uma biblioteca/pacote nada mais é do que um conjunto de código publicado
 
 Para instalá-lo rode `npm install --save express`.
 

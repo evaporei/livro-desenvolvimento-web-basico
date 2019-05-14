@@ -31,8 +31,7 @@ function authorizationMiddleware (req, res, next) {
   const authorizationHeader = req.get('authorization')
 
   if (!authorizationHeader) {
-    res.status(401).send({ message: 'Authorization header missing' })
-    return
+    return res.status(401).send({ message: 'Authorization header missing' })
   }
 
   const authorizationHeaderParts = authorizationHeader.split(' ')
@@ -41,8 +40,7 @@ function authorizationMiddleware (req, res, next) {
   const token = authorizationHeaderParts[1]
 
   if (bearer != 'Bearer') {
-    res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
-    return
+    return res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
   }
 
   const isValidToken = tokens.find(function (validToken) {
@@ -50,8 +48,7 @@ function authorizationMiddleware (req, res, next) {
   })
 
   if (!isValidToken) {
-    res.status(401).send({ message: 'Authorization header is not valid' })
-    return
+    return res.status(401).send({ message: 'Authorization header is not valid' })
   }
 
   next()
@@ -59,17 +56,15 @@ function authorizationMiddleware (req, res, next) {
 
 app.post('/products', authorizationMiddleware, function (req, res) {
   if (req.body.name == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product name is missing'
     })
-    return
   }
 
   if (req.body.price == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product price is missing'
     })
-    return
   }
 
   const productAlreadyExists = products.find(function (product) {
@@ -77,10 +72,9 @@ app.post('/products', authorizationMiddleware, function (req, res) {
   })
 
   if (productAlreadyExists) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'This product name already exists' 
     })
-    return
   }
 
   const newProduct = {
@@ -131,10 +125,9 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   res.status(200).send(productFound)

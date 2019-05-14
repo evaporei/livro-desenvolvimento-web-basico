@@ -34,6 +34,8 @@ Existe uma ferramenta de linha de comando chamada `nodemon` a qual executa o scr
 
 Isso facilita ter de ficar parando o servidor no terminal com `Ctrl + C` e o iniciando novamente, a cada alteração no código.
 
+Para instalar o `nodemon` utilize `npm install --global nodemon`, após executar isso, terá disponível o comando no terminal, assim como já possuia o `node`.
+
 ## Notas
 
 Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta [api do repositório no Github](https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/api).

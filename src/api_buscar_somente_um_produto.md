@@ -109,10 +109,9 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   res.status(200).send(productFound)

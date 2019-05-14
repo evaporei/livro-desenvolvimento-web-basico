@@ -150,7 +150,7 @@
 <li>Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente</li>
 <li>Como construir uma API em Node.js em memória</li>
 <li>Como consumir essa API HTTP via Node.js</li>
-<li>Entender o que é uma SDK</li>
+<li>O que é uma SDK</li>
 </ul>
 <a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
 <p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico">Github</a>.</p>
@@ -176,12 +176,12 @@
 </p>
 <p>Esse fluxo é <strong>síncrono</strong>, ou seja, a ideia é que quando o cliente inicia uma conexão, ele irá esperar até sua resposta chegar. Caso ela não chegue no tempo esperado, a requisição pode ser terminada.</p>
 <a class="header" href="#o-que-costuma-girar-entorno-de-servidores-http" id="o-que-costuma-girar-entorno-de-servidores-http"><h1>O que costuma girar entorno de servidores HTTP?</h1></a>
-<p>O servidor/computador fica escutando por conexões em uma porta. Todo computador tem um IP (216.3.128.12), que é um identificador único na internet. Geralmente se configura um DNS (www.google.com), que nada mais é que um texto que direciona para um IP ou um conjunto de IPs.</p>
+<p>O servidor fica escutando por conexões em uma porta no computador. Todo computador tem um IP (216.3.128.12), que é um identificador único na internet. Geralmente se configura um DNS (www.google.com), que nada mais é que um texto que direciona para um IP ou um conjunto de IPs.</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56098622-80e5c700-5ed8-11e9-92ae-4e70aec5c015.png" alt="drawing1"/>
 </p>
 <p>É comum também utilizar de <code>load balancers</code> para ficarem na frente dos servidores.</p>
-<p>Um <code>load balancer</code>, nada mais é que um servidor como qualquer outro, cuja função é receber requisições e direcioná-las a outros servidores, dividingo a carga de uma forma específica (igualmente por exemplo).</p>
+<p>Um <code>load balancer</code>, nada mais é que um servidor como qualquer outro, cuja função é receber requisições e direcioná-las a outros servidores, dividindo a carga de uma forma específica (igualmente por exemplo).</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56098687-2c8f1700-5ed9-11e9-82f6-9fd595e70289.png" alt="drawing2"/>
 </p>
@@ -194,12 +194,12 @@
 <li>Dados <code>query string</code> (depois da interrogação): <code>size</code> valendo <code>500</code> e <code>free_use</code> valendo <code>false</code>.</li>
 </ul>
 <a class="header" href="#status-code" id="status-code"><h2>Status code</h2></a>
-<p>É um número que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
+<p>É um número de três dígitos que representa o que aconteceu com a requisição HTTP, veja lista <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status">aqui</a>. Os mais comuns são:</p>
 <ul>
 <li><code>2xx</code>: deu tudo certo</li>
 <li><code>3xx</code>: redirecionamento</li>
 <li><code>4xx</code>: respostas de erro (algum campo faltando por exemplo)</li>
-<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou explodiu no meio da requisição)</li>
+<li><code>5xx</code>: servidor deu problema (pode estar fora do ar, ou &quot;explodiu&quot; no meio da requisição)</li>
 </ul>
 <a class="header" href="#body" id="body"><h2>Body</h2></a>
 <p>O corpo da requisição. É basicamente o dado principal da requisição e resposta HTTP. Ele pode possuir diferentes formatos. Vamos supor que quero fazer login em uma página, o servidor precisa saber qual o meu <code>e-mail</code> e qual a minha <code>senha</code>. Geralmente esse tipo de dado é enviado pelo corpo, e na resposta nesse caso iremos receber um <code>status code</code> informando se os dados estão corretos (<code>200</code>, deu certo, e <code>400</code> deu errado). Exemplo utilizando o formato <code>JSON</code>:</p>
@@ -255,8 +255,15 @@
 <li>Node.js (<a href="https://nodejs.org/en/">link p/ download</a>)</li>
 <li>Postman (<a href="https://www.getpostman.com/downloads/">link p/ download</a>)</li>
 </ul>
-<a class="header" href="#notas" id="notas"><h2>Notas</h2></a>
-<p>Tudo que irei mostrar aqui, será pelo terminal (no windows, PowerShell ou Prompt de Comando), exceto para fazer as requisições imitando um cliente, aí será pelo <code>Postman</code>.</p>
+<a class="header" href="#observações-2" id="observações-2"><h2>Observações</h2></a>
+<p>Todos os blocos assim:</p>
+<pre><code>coisas a serem executadas
+no terminal
+linha a linha
+:)
+</code></pre>
+<p>Será o que é preciso fazer no terminal (no Windows, PowerShell ou Prompt de Comando), como é descrito acima.</p>
+<p>Já para fazer requisições imitando um cliente, aí será pelo <code>Postman</code>.</p>
 <a class="header" href="#setup-do-servidor" id="setup-do-servidor"><h2>Setup do servidor</h2></a>
 <p>Crie uma pasta qualquer no seu computador, aqui iremos criar uma chamada <code>servidor</code>.</p>
 <pre><code class="language-shell">mkdir servidor
@@ -273,6 +280,9 @@ npm init
 <pre><code class="language-shell"># cria o arquivo principal
 touch modulo_http.js
 </code></pre>
+<blockquote>
+<p>Obs: <code>#</code> significa um comentário no terminal, ou seja, que a linha não será executada :)</p>
+</blockquote>
 <p>Abra seu editor favorito e vamos codificar o tal servidor!</p>
 <p>Primeiro vamos importar o módulo <code>http</code> da biblioteca padrão do <code>Node.js</code>.</p>
 <p>Caso esteja curioso, não é necessário acessá-la, mas aqui está a <a href="https://nodejs.org/api/http.html">documentação do módulo</a>.</p>
@@ -309,21 +319,26 @@ server.listen(PORT, function (err) {
   console.log(`Servidor escutando na porta: ${PORT}`)
 })
 </code></pre>
+<p>A <code>function (err) { ... }</code> que estamos passando como segundo parâmetro a função <code>server.listen</code>, é chamada assim que a tentativa de subir o servidor finalizou. Ela pode ter dado certo ou errado, para isso serve o <code>if</code> aqui.</p>
+<blockquote>
+<p>Obs: <code>console.log</code> é a função que coloca texto no terminal, um <code>print</code></p>
+</blockquote>
+<p>O <code>return</code> dentro do <code>if</code> serve para que terminemos a execução da função alí mesmo. Não queremos que apareça no terminal <code>Servidor escutando na porta:</code> quando na verdade o servidor não está realmente fazendo isso, pois ocorreu um erro.</p>
 <p>Aqui está! Temos o servidor, a porta e a função que cuida de cada requisição! Uhullll!!!!</p>
 <p>Bora colocar esse servidor para funcionar?!</p>
 <p>Execute em seu terminal:</p>
 <pre><code class="language-shell">node modulo_http.js
 </code></pre>
-<p>Caso nosso servidor esteja de pé irá aparecer a seguinte frase no terminal: <code>Servidor escutando na porta: 8000</code>.</p>
+<p>Caso nosso servidor esteja de pé, irá aparecer a seguinte frase no terminal: <code>Servidor escutando na porta: 8000</code>.</p>
 <p>Se der errado por algum motivo, aparecerá: <code>Algo de ruim aconteceu, erro:</code>, com o erro em sequência.</p>
-<p>Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou já existe algum outro programa que usa a porta <code>8000</code>. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.</p>
+<p>Se cair no caso de erro, talvez seja porque já subiu o servidor anteriormente ou porque já existe algum outro programa que usa a porta <code>8000</code>. Sendo esse o caso, mude a porta do nosso servidor, ou feche os programas que estão usando tal porta.</p>
 <a class="header" href="#ta-e-agora" id="ta-e-agora"><h3>Ta, e agora?</h3></a>
 <p>De que adianta um servidor HTTP se ele não for receber requisições não é mesmo? :O</p>
 <p>É agora que o Postman entra na jogada!</p>
 <p align="center">
   <img src="https://www.getpostman.com/img/v2/media-kit/Logo/PNG/pm-logo-vert.png" alt="postman-logo" width="200"/>
 </p>
-<p>Ao entrar ele irá pedir para fazer login, porém pode pular esse passo clicando no último texto que aparece na tela (<code>Take me straight to the app. I'll create an account another time.</code>):</p>
+<p>Ao entrar será pedido para fazer login, porém é possível pular esse passo clicando no último texto que aparece na tela (<code>Take me straight to the app. I'll create an account another time.</code>):</p>
 <p align="center">
   <img src="https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/signUp.png" alt="postman-start-screen"/>
 </p>
@@ -340,7 +355,14 @@ server.listen(PORT, function (err) {
   <img src="https://user-images.githubusercontent.com/15306309/56097868-306a6b80-5ed0-11e9-9688-664518cf2bba.png" alt="postman-example-request"/>
 </p>
 <p>Parabéns!!!! Você conseguiu criar seu primeiro servidor e enviar requisições a ele!!!!!! :)</p>
+<p>Só para ficar mais claro o que acabou de acontecer, aqui está um desenho:</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15306309/57666785-98979480-75d7-11e9-8096-141c35c9daaa.png" alt="diagram-request-postman-response-node"/>
+</p>
 <p>Uma última coisa que da para fazer de legal, é adicionar <code>logs</code>, na sua aplicação/servidor, para que mostre qual a <code>rota</code> que o cliente está pedindo, qual o <code>método</code>, etc.</p>
+<blockquote>
+<p>Obs: <code>logs</code> nada mais são do que textos na tela do terminal para entender o fluxo da aplicação, ou seja, <code>console.log</code>s no caso do JavaScript</p>
+</blockquote>
 <p>Segue o código abaixo com alguns <code>logs</code> simples.</p>
 <pre><code class="language-javascript">const http = require('http')
 const PORT = 8000
@@ -377,7 +399,10 @@ server.listen(PORT, function (err) {
   <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/servidor/modulo_http.js">Link para a versão final do código</a>
 </p>
 <a class="header" href="#usando-o-pacote-express" id="usando-o-pacote-express"><h1>Usando o pacote express</h1></a>
-<p>Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é <code>express</code>.</p>
+<p>Bom, dessa vez iremos usar uma biblioteca/pacote que facilita a criação de servidores HTTP, o nome dele é <code>express</code>.</p>
+<blockquote>
+<p>Obs: uma biblioteca/pacote nada mais é do que um conjunto de código publicado</p>
+</blockquote>
 <p>Para instalá-lo rode <code>npm install --save express</code>.</p>
 <pre><code class="language-shell">npm install --save express
 </code></pre>
@@ -536,9 +561,13 @@ app.listen(PORT)
 <p>Mas por que fazer assim?</p>
 <p>Simplesmente por simplicidade. Lembre-se que tudo que salvarmos na memória, poderia simplesmente estar em um banco de dados.</p>
 <p>Bora!</p>
-<a class="header" href="#nota-importante" id="nota-importante"><h2>Nota importante</h2></a>
+<a class="header" href="#observações-importantes" id="observações-importantes"><h2>Observações importantes</h2></a>
+<a class="header" href="#json" id="json"><h3>JSON</h3></a>
 <p>Eu não explico no livro o que é <code>JSON</code>, recomendo pesquisar sobre, aqui está um artigo que talvez possa ajudar: <a href="https://medium.com/clebertech/o-que-%C3%A9-json-daaa9311e929">artigo Medium JSON</a>.</p>
 <p>Em poucas palavras é um formato de dados semelhante ao <code>XML</code>, que está ganhando mais popularidade.</p>
+<a class="header" href="#persistência" id="persistência"><h3>Persistência</h3></a>
+<p>Uma coisa que não estou fazendo nesse tutorial é a comunicação com o banco de dados, como disse anteriormente, será tudo na memória.</p>
+<p>Isso <strong>não</strong> é a forma que as pessoas fazem para persistir dados em produção! Geralmente quando se quer armazenar dados, se utiliza de algo que não irá se perder ao terminar o programa.</p>
 <a class="header" href="#setup" id="setup"><h1>Setup</h1></a>
 <p>Recomendo criar uma outra pasta somente para esse projeto.</p>
 <p>Execute <code>npm init</code> e pode pressionar <code>Enter</code> até as opções do <code>npm</code> acabarem.</p>
@@ -561,7 +590,8 @@ app.listen(PORT)
 <p>Essa parte é opcional, mas irá facilitar o desenvolvimento.</p>
 <p>Existe uma ferramenta de linha de comando chamada <code>nodemon</code> a qual executa o script Node.js passado por argumento (<code>nodemon arquivo.js</code>), e toda vez que o arquivo for alterado.</p>
 <p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
-<a class="header" href="#notas-1" id="notas-1"><h2>Notas</h2></a>
+<p>Para instalar o <code>nodemon</code> utilize <code>npm install --global nodemon</code>, após executar isso, terá disponível o comando no terminal, assim como já possuia o <code>node</code>.</p>
+<a class="header" href="#notas" id="notas"><h2>Notas</h2></a>
 <p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/api">api do repositório no Github</a>.</p>
 <p align="center">
   <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/api/setup.js">Link para a versão final do código</a>
@@ -849,17 +879,15 @@ const products = []
 
 app.post('/products', function (req, res) {
   if (req.body.name == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product name is missing'
     })
-    return
   }
 
   if (req.body.price == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product price is missing'
     })
-    return
   }
 
   const productAlreadyExists = products.find(function (product) {
@@ -867,10 +895,9 @@ app.post('/products', function (req, res) {
   })
 
   if (productAlreadyExists) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'This product name already exists' 
     })
-    return
   }
 
   const newProduct = {
@@ -886,6 +913,9 @@ app.post('/products', function (req, res) {
 
 // ...
 </code></pre>
+<blockquote>
+<p>Obs: os <code>return</code>s feitos nos <code>if</code>s, servem para terminar a execução da rota sem que executem o resto do código</p>
+</blockquote>
 <p>Yesss!! Conseguimos fazer nossa primeira rota de criação de algum recurso!!!!</p>
 <p>Ainda tem a autenticação, lembre-se que o código acima <strong>não valida</strong> várias coisas, como o <strong>tipo dos campos</strong>, se eles estão <strong>vazios</strong>, se o preço é <strong>negativo</strong>, etc. Isso é somente um exemplo de como validar coisas mais básicas.</p>
 <a class="header" href="#autenticação-1" id="autenticação-1"><h3>Autenticação</h3></a>
@@ -894,8 +924,7 @@ app.post('/products', function (req, res) {
 <p>Exemplo, considere uma rota <code>/rota_legal</code> que pode receber requisições <code>POST</code>:</p>
 <pre><code class="language-javascript">function parte1 (req, res, next) {
   if (algo_faltando) {
-    res.status(401).send({ message: &quot;Algo está faltando!!!&quot; })
-    return
+    return res.status(401).send({ message: &quot;Algo está faltando!!!&quot; })
   }
 
   // chama parte2
@@ -910,6 +939,7 @@ app.post('/rota_legal', parte1, parte2)
 </code></pre>
 <p>Nesse caso, a função <code>parte2</code> só será chamada caso a função <code>parte1</code> chame a função <code>next</code>. Se não, a requisição irá parar por alí.</p>
 <p>Bora criar a autenticação no nosso app! Conforme o que foi colocado nos exemplos do começo do capítulo, iremos aceitar um <code>header</code> chamado <code>Authorization</code>. Ele terá duas partes, uma é o prefixo <code>Bearer</code>, isso é só uma palavra comum que costumam utilizar para esse tipo de coisa, e a segunda parte é o token em sí, gerado pela rota <code>/auth</code> do último capítulo.</p>
+<p>A principal parte é validar se o <code>token</code> recebido na requisição, está dentro da lista criada que armazena os <code>tokens</code> feitos na rota <code>/auth</code>.</p>
 <p>O código fica assim:</p>
 <pre><code class="language-javascript">// ...
 
@@ -917,8 +947,7 @@ function authorizationMiddleware (req, res, next) {
   const authorizationHeader = req.get('authorization')
 
   if (!authorizationHeader) {
-    res.status(401).send({ message: 'Authorization header missing' })
-    return
+    return res.status(401).send({ message: 'Authorization header missing' })
   }
 
   const authorizationHeaderParts = authorizationHeader.split(' ')
@@ -927,8 +956,7 @@ function authorizationMiddleware (req, res, next) {
   const token = authorizationHeaderParts[1]
 
   if (bearer != 'Bearer') {
-    res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
-    return
+    return res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
   }
 
   const isValidToken = tokens.find(function (validToken) {
@@ -936,8 +964,7 @@ function authorizationMiddleware (req, res, next) {
   })
 
   if (!isValidToken) {
-    res.status(401).send({ message: 'Authorization header is not valid' })
-    return
+    return res.status(401).send({ message: 'Authorization header is not valid' })
   }
 
   next()
@@ -1206,10 +1233,9 @@ app.get('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   res.status(200).send(productFound)
@@ -1339,10 +1365,9 @@ app.patch('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   if (req.body.name != null) {
@@ -1469,10 +1494,9 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   const itemToBeDeletedIndex = products.indexOf(productFound)
@@ -1484,7 +1508,7 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
 
 // app.listen...
 </code></pre>
-<p>Assim como no último capítulo, o <code>:id</code> acaba por virar uma variável graças ao <code>express</code>.</p>
+<p>Assim como nos últimos dois capítulos, o <code>:id</code> acaba por virar uma variável graças ao <code>express</code>.</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56464870-b141cf80-63c8-11e9-9f94-feb1ce355d9c.png" alt="sample-request-delete" />
 </p>
@@ -1499,7 +1523,7 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
 <p>Recomendo criar uma outra pasta somente para esse projeto.</p>
 <p>Execute <code>npm init</code> e pode pressionar <code>Enter</code> até as opções do <code>npm</code> acabarem.</p>
 <a class="header" href="#dependências-1" id="dependências-1"><h2>Dependências</h2></a>
-<p>Iremos precisar somente do <code>axios</code>, ela é uma biblioteca que facilita a fazer requisições HTTP. Para instalá-lo:</p>
+<p>Iremos precisar somente do <code>axios</code>, ela é uma biblioteca/pacote que facilita a fazer requisições HTTP. Para instalá-lo:</p>
 <pre><code class="language-shell">npm install --save axios
 </code></pre>
 <p>Esse será o arquivo base para o projeto:</p>
@@ -1518,13 +1542,14 @@ run()
 <p>Essa parte é opcional, mas irá facilitar o desenvolvimento.</p>
 <p>Existe uma ferramenta de linha de comando chamada <code>nodemon</code> a qual executa o script Node.js passado por argumento (<code>nodemon arquivo.js</code>), e toda vez que o arquivo for alterado.</p>
 <p>Isso facilita ter de ficar parando o servidor no terminal com <code>Ctrl + C</code> e o iniciando novamente, a cada alteração no código.</p>
-<a class="header" href="#notas-2" id="notas-2"><h2>Notas</h2></a>
+<p>Para instalar o <code>nodemon</code> utilize <code>npm install --global nodemon</code>, após executar isso, terá disponível o comando no terminal, assim como já possuia o <code>node</code>.</p>
+<a class="header" href="#notas-1" id="notas-1"><h2>Notas</h2></a>
 <p>Todo o código do servidor estará não só aqui nos capítulos do livro, como na pasta <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/tree/master/request">api do repositório no Github</a>.</p>
 <p align="center">
   <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico/blob/master/request/setup.js">Link para a versão final do código</a>
 </p>
 <a class="header" href="#autenticação-2" id="autenticação-2"><h1>Autenticação</h1></a>
-<p>Primeiro de tudo para conseguirmos interagir com nossa API de produtos, precisamos de um token, ou seja, de autenticação/autorização.</p>
+<p>Primeiro de tudo, para conseguirmos interagir com nossa API de produtos, precisamos de um token, ou seja, de autenticação/autorização.</p>
 <p>Segue abaixo o script de como usar o <code>axios</code> para fazer uma requisição <code>HTTP</code>.</p>
 <pre><code class="language-javascript">const axios = require('axios')
 

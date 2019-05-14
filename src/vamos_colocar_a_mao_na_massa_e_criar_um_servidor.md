@@ -5,9 +5,20 @@
 - Node.js ([link p/ download](https://nodejs.org/en/))
 - Postman ([link p/ download](https://www.getpostman.com/downloads/))
 
-## Notas
+## Observações
 
-Tudo que irei mostrar aqui, será pelo terminal (no windows, PowerShell ou Prompt de Comando), exceto para fazer as requisições imitando um cliente, aí será pelo `Postman`.
+Todos os blocos assim:
+
+```
+coisas a serem executadas
+no terminal
+linha a linha
+:)
+```
+
+Será o que é preciso fazer no terminal (no Windows, PowerShell ou Prompt de Comando), como é descrito acima.
+
+Já para fazer requisições imitando um cliente, aí será pelo `Postman`.
 
 ## Setup do servidor
 

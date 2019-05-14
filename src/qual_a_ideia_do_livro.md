@@ -10,7 +10,7 @@ Mostrar com termos pouco técnicos e simples:
 - Como construir um servidor simples em Node.js que lê os dados recebidos pelo cliente
 - Como construir uma API em Node.js em memória
 - Como consumir essa API HTTP via Node.js
-- Entender o que é uma SDK
+- O que é uma SDK
 
 ## Observações
 
