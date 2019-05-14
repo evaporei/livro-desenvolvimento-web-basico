@@ -1,6 +1,6 @@
 # O que costuma girar entorno de servidores HTTP?
 
-O servidor/computador fica escutando por conexões em uma porta. Todo computador tem um IP (216.3.128.12), que é um identificador único na internet. Geralmente se configura um DNS (www.google.com), que nada mais é que um texto que direciona para um IP ou um conjunto de IPs.
+O servidor fica escutando por conexões em uma porta no computador. Todo computador tem um IP (216.3.128.12), que é um identificador único na internet. Geralmente se configura um DNS (www.google.com), que nada mais é que um texto que direciona para um IP ou um conjunto de IPs.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15306309/56098622-80e5c700-5ed8-11e9-92ae-4e70aec5c015.png" alt="drawing1"/>
