@@ -172,17 +172,15 @@ const products = []
 
 app.post('/products', function (req, res) {
   if (req.body.name == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product name is missing'
     })
-    return
   }
 
   if (req.body.price == null) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'The product price is missing'
     })
-    return
   }
 
   const productAlreadyExists = products.find(function (product) {
@@ -190,10 +188,9 @@ app.post('/products', function (req, res) {
   })
 
   if (productAlreadyExists) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'This product name already exists' 
     })
-    return
   }
 
   const newProduct = {
@@ -210,6 +207,8 @@ app.post('/products', function (req, res) {
 // ...
 ```
 
+> Obs: os `return`s feitos nos `if`s, servem para terminar a execução da rota sem que executem o resto do código
+
 Yesss!! Conseguimos fazer nossa primeira rota de criação de algum recurso!!!!
 
 Ainda tem a autenticação, lembre-se que o código acima **não valida** várias coisas, como o **tipo dos campos**, se eles estão **vazios**, se o preço é **negativo**, etc. Isso é somente um exemplo de como validar coisas mais básicas.
@@ -225,8 +224,7 @@ Exemplo, considere uma rota `/rota_legal` que pode receber requisições `POST`:
 ```javascript
 function parte1 (req, res, next) {
   if (algo_faltando) {
-    res.status(401).send({ message: "Algo está faltando!!!" })
-    return
+    return res.status(401).send({ message: "Algo está faltando!!!" })
   }
 
   // chama parte2
@@ -244,6 +242,8 @@ Nesse caso, a função `parte2` só será chamada caso a função `parte1` chame
 
 Bora criar a autenticação no nosso app! Conforme o que foi colocado nos exemplos do começo do capítulo, iremos aceitar um `header` chamado `Authorization`. Ele terá duas partes, uma é o prefixo `Bearer`, isso é só uma palavra comum que costumam utilizar para esse tipo de coisa, e a segunda parte é o token em sí, gerado pela rota `/auth` do último capítulo.
 
+A principal parte é validar se o `token` recebido na requisição, está dentro da lista criada que armazena os `tokens` feitos na rota `/auth`.
+
 O código fica assim:
 
 ```javascript
@@ -253,8 +253,7 @@ function authorizationMiddleware (req, res, next) {
   const authorizationHeader = req.get('authorization')
 
   if (!authorizationHeader) {
-    res.status(401).send({ message: 'Authorization header missing' })
-    return
+    return res.status(401).send({ message: 'Authorization header missing' })
   }
 
   const authorizationHeaderParts = authorizationHeader.split(' ')
@@ -263,8 +262,7 @@ function authorizationMiddleware (req, res, next) {
   const token = authorizationHeaderParts[1]
 
   if (bearer != 'Bearer') {
-    res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
-    return
+    return res.status(401).send({ message: 'Authorization header needs the Bearer prefix' })
   }
 
   const isValidToken = tokens.find(function (validToken) {
@@ -272,8 +270,7 @@ function authorizationMiddleware (req, res, next) {
   })
 
   if (!isValidToken) {
-    res.status(401).send({ message: 'Authorization header is not valid' })
-    return
+    return res.status(401).send({ message: 'Authorization header is not valid' })
   }
 
   next()
