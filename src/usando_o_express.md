@@ -2,6 +2,8 @@
 
 Bom, dessa vez iremos usar um pacote que facilita a criação de servidores HTTP, o nome dele é `express`.
 
+> Obs: um pacote nada mais é do que um conjunto de código publicado
+
 Para instalá-lo rode `npm install --save express`.
 
 ```shell
