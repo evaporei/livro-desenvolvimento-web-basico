@@ -114,10 +114,9 @@ app.delete('/products/:id', authorizationMiddleware, function (req, res) {
   })
 
   if (!productFound) {
-    res.status(404).send({
+    return res.status(404).send({
       message: 'No product exists with this id'
     })
-    return
   }
 
   const itemToBeDeletedIndex = products.indexOf(productFound)
