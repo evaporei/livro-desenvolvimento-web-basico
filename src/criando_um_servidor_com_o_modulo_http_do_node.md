@@ -90,7 +90,7 @@ De que adianta um servidor HTTP se ele não for receber requisições não é me
   <img src="https://www.getpostman.com/img/v2/media-kit/Logo/PNG/pm-logo-vert.png" alt="postman-logo" width="200"/>
 </p>
 
-Ao entrar ele irá pedir para fazer login, porém pode pular esse passo clicando no último texto que aparece na tela (`Take me straight to the app. I'll create an account another time.`):
+Ao entrar será pedido para fazer login, porém é possível pular esse passo clicando no último texto que aparece na tela (`Take me straight to the app. I'll create an account another time.`):
 
 <p align="center">
   <img src="https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/signUp.png" alt="postman-start-screen"/>
