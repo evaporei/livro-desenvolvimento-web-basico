@@ -152,8 +152,35 @@
 <li>Como consumir essa API HTTP via Node.js</li>
 <li>O que é uma SDK</li>
 </ul>
+<a class="header" href="#como-contribuir" id="como-contribuir"><h2>Como contribuir</h2></a>
+<p>Esse livro foi escrito usando uma ferramenta chamada <code>mdbook</code> que transforma texto de <code>Markdown</code> para <code>HTML</code>. Link para baixá-la: https://github.com/rust-lang-nursery/mdBook/releases.</p>
+<a class="header" href="#estrutura-do-projeto" id="estrutura-do-projeto"><h3>Estrutura do projeto</h3></a>
+<pre><code>livro-desenvolvimento-web-basico
+│   README.md
+│   .gitignore
+│
+└───api
+│   └─── Código do projeto em que uma API é feita
+│
+└───book
+│   └─── Livro em HTML
+│
+└───request
+│   └─── Código do projeto em que requisições são feitas
+│
+└───servidor
+│   └─── Código do projeto em que um servidor HTTP é feito
+│
+└───src
+    └─── Livro em Markdown
+</code></pre>
+<p>Para contribuir no texto do livro, deve-se escrever <code>Markdown</code> dentro da pasta <code>src</code>, para então usar o <code>mdbook</code>, o qual irá converter isso em <code>HTML</code>, que é a versão final do livro.</p>
+<p>Caso não queira ou não possa por quaisquer motivos instalar o <code>mdbook</code> em seu computador, não tem problema, você pode criar um <code>Pull Request</code> que muda apenas a pasta <code>src</code>, para que então eu aplique as mudanças usando a ferramenta, a qual irá popular a pasta <code>book</code>.</p>
+<a class="header" href="#gerando-o-html-através-do-mdbook" id="gerando-o-html-através-do-mdbook"><h3>Gerando o HTML através do <code>mdbook</code></h3></a>
+<p>Depois que tiver o <code>mdbook</code> instalado na sua máquina e tiver modificado o <code>Markdown</code> na pasta <code>src</code>, pode ir no seu <code>Terminal</code> de preferência, entrar na pasta do projeto (<code>cd livro-desenvolvimento-web-basico</code>), e executar <code>mdbook build</code>.</p>
+<p>Voila! Agora os arquivos da pasta <code>book</code> já estarão com o <code>HTML</code> modificado :wink: Só falta fazer o commit com eles!</p>
 <a class="header" href="#observações" id="observações"><h2>Observações</h2></a>
-<p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para criar uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico">Github</a>.</p>
+<p>Esse é um livro que fiz para um amigo meu entender mais sobre o protocólo HTTP e Node.js. Esse projeto não tem fins lucrativos, apenas educacionais. Pode ser e é bem provável que eu tenha cometido vários erros de português durante o livro, se quiser corrigir, por favor se sinta a vontade para contribuir, seja criando uma <code>Issue</code> ou <code>Pull Request</code> no projeto do <a href="https://github.com/otaviopace/livro-desenvolvimento-web-basico">Github</a>.</p>
 
                     </main>
 
