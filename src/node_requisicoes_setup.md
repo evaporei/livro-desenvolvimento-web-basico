@@ -32,7 +32,7 @@ Todo o nosso código ficará dentro da função assíncrona `run`.
 
 Essa parte é opcional, mas irá facilitar o desenvolvimento.
 
-Existe uma ferramenta de linha de comando chamada `nodemon` a qual executa o script Node.js passado por argumento (`nodemon arquivo.js`), e toda vez que o arquivo for alterado.
+Existe uma ferramenta de linha de comando chamada `nodemon` a qual executa o script Node.js passado por argumento (`nodemon arquivo.js`), e toda vez que o arquivo for alterado, o script é iniciado novamente com o código novo.
 
 Isso facilita ter de ficar parando o servidor no terminal com `Ctrl + C` e o iniciando novamente, a cada alteração no código.
 
