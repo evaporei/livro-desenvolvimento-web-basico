@@ -38,4 +38,6 @@ npm init
 
 O `npm` (node package manager) irá perguntar por várias coisas, no momento pode apenas pressionar `Enter` várias vezes até acabar.
 
+Mas caso não queria responder nenhuma pergunta e somente criar o arquivo package.json, você pode substituir o comando `npm` por `npm init -y`.
+
 Em cada sub capítulo iremos criar um novo arquivo `JavaScript` na mesma pasta, o qual iremos codificar em cima.
