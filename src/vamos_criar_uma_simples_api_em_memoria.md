@@ -2,7 +2,7 @@
 
 O que iremos construir?
 
-Um servidor HTTP de produtos. Teremos 3 rotas iniciais, são elas:
+Um servidor HTTP de produtos. Teremos 6 rotas, são elas:
 
 - Autenticação (`POST /auth`)
 - Criação de produto (`POST /products`)
